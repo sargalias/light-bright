@@ -1,0 +1,11 @@
+{
+  "name": "light-bright",
+  "version": "1.0.0",
+  "description": "A simple light-bright app.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Spyros Argalias",
+  "license": "ISC"
+}
