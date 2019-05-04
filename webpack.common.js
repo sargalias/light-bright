@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = env => {
   if (env.prod === undefined) {
@@ -15,11 +16,6 @@ module.exports = env => {
       filename: 'main.bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-      }),
-    ],
     resolve: {
       extensions: ['.js', '.jsx'],
     },
@@ -61,5 +57,13 @@ module.exports = env => {
         },
       ],
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
+      new StyleLintPlugin({
+        emitErrors: env.prod,
+      }),
+    ],
   };
 };
