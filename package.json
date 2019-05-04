@@ -9,7 +9,12 @@
     "build:dev": "webpack --config ./webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write ./src/**/*.{js,jsx,css,scss,json,html}",
-    "lint": "eslint ./src/**/*.{js,jsx}"
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:scss": "stylelint ./src/**/*.scss",
+    "lint:js": "eslint ./src/**/*.{js,jsx}",
+    "lint:fix": "npm run lint:js:fix && npm run lint:scss:fix",
+    "lint:fix:scss": "npm run lint:scss -- --fix",
+    "lint:fix:js": "npm run lint:js -- --fix"
   },
   "author": "Spyros Argalias",
   "license": "ISC",
