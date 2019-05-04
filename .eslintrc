@@ -26,6 +26,7 @@
     "xss/no-location-href-assign": 1
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   }
 }
