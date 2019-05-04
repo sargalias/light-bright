@@ -1,6 +1,30 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:array-func/all",
+    "plugin:promise/recommended",
+    "plugin:security/recommended"
+  ],
+  "plugins": [
+    "no-loops",
+    "no-use-extend-native",
+    "promise",
+    "no-secrets",
+    "xss"
+  ],
+  "rules": {
+    "no-loops/no-loops": 2,
+    "promise/catch-or-return": 0,
+    "promise/always-return": 0,
+    "promise/valid-params": 2,
+    "promise/prefer-await-to-then": 1,
+    "promise/prefer-await-to-callbacks": 1,
+    "no-secrets/no-secrets": 2,
+    "xss/no-mixed-html": 1,
+    "xss/no-location-href-assign": 1
+  },
   "env": {
     "browser": true
   }
