@@ -4,12 +4,7 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss)$': 'identity-obj-proxy',
 
-    //
-    /*
-      webpack alias options
-      see https://jestjs.io/docs/en/webpack.html#configuring-jest-to-find-our-files
-      e.g. '^components/(.*)$': '<rootDir>/src/components/$1'
-    */
+    '^testUtils$': '<rootDir>/testUtils',
   },
   coverageThreshold: {
     global: {
