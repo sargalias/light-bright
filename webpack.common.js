@@ -56,6 +56,14 @@ module.exports = env => {
                 sourceMap,
               },
             },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  /* array of paths */
+                ],
+              },
+            },
           ],
         },
       ],
