@@ -9,5 +9,6 @@ module.exports = merge(common(env), {
   devtool: 'cheap-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
+    https: true,
   },
 });
