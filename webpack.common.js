@@ -23,6 +23,7 @@ module.exports = env => {
         components: path.resolve(__dirname, 'src/components/'),
         pages: path.resolve(__dirname, 'src/pages/'),
         utilities: path.resolve(__dirname, 'src/utilities/'),
+        base: path.resolve(__dirname, 'src/base/'),
       },
     },
     module: {
@@ -61,12 +62,12 @@ module.exports = env => {
                 sourceMap,
               },
             },
-            {
-              loader: 'sass-resources-loader',
-              options: {
-                resources: ['./src/abstracts/**/*'],
-              },
-            },
+            // {
+            // loader: 'sass-resources-loader',
+            // options: {
+            // resources: ['./src/abstracts/**/*'],
+            // },
+            // },
           ],
         },
       ],
