@@ -1,6 +1,5 @@
 import React from 'react';
-import MainContentHeader from './components/mainContentHeader';
 
-const App = () => <MainContentHeader />;
+const App = () => <h1>Hello world</h1>;
 
 export default App;

@@ -15,5 +15,5 @@ module.exports = {
       lines: 90,
     },
   },
-  coveragePathIgnorePatterns: ['/node_modules/', './src/index.jsx'],
+  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/index.jsx'],
 };

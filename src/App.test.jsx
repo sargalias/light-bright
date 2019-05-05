@@ -1,3 +1,8 @@
+import React from 'react';
+import { render } from 'testUtils'; // eslint-disable-line
+import App from './App';
+
 test('test', () => {
-  expect(1).toBe(1);
+  const { container } = render(<App />);
+  expect(container).toMatchSnapshot();
 });
