@@ -28,7 +28,9 @@
     "promise/prefer-await-to-callbacks": 1,
     "no-secrets/no-secrets": 2,
     "xss/no-mixed-html": 1,
-    "xss/no-location-href-assign": 1
+    "xss/no-location-href-assign": 1,
+    "react/prop-types": 0,
+    "react/jsx-one-expression-per-line": 0
   },
   "env": {
     "browser": true,
