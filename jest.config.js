@@ -6,6 +6,7 @@ module.exports = {
 
     '^components/(.*)$': '<rootDir>/src/components/$1',
     '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
+    '^testUtils$': '<rootDir>/testUtils',
   },
   coverageThreshold: {
     global: {
