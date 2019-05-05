@@ -20,7 +20,7 @@ module.exports = env => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        /* e.g. components: path.resolve(__dirname, 'src/components/') */
+        components: path.resolve(__dirname, 'src/components/'),
       },
     },
     module: {
@@ -62,9 +62,7 @@ module.exports = env => {
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: [
-                  /* array of paths */
-                ],
+                resources: ['./src/abstracts/**/*'],
               },
             },
           ],
