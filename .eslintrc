@@ -5,14 +5,18 @@
     "plugin:prettier/recommended",
     "plugin:array-func/all",
     "plugin:promise/recommended",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:jest/recommended",
+    "plugin:cypress/recommended"
   ],
   "plugins": [
     "no-loops",
     "no-use-extend-native",
     "promise",
     "no-secrets",
-    "xss"
+    "xss",
+    "jest",
+    "cypress"
   ],
   "rules": {
     "no-loops/no-loops": 2,
@@ -28,5 +32,13 @@
   "env": {
     "browser": true,
     "jest": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*_spec.js"],
+      "rules": {
+        "jest/valid-expect": 0
+      }
+    }
+  ]
 }
