@@ -1,0 +1,13 @@
+$blue: blue;
+
+.MainContentHeader {
+  background-color: $blue;
+
+  &_t {
+    background-color: $blue;
+
+    &___f {
+      background-color: $blue;
+    }
+  }
+}
