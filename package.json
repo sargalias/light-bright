@@ -8,7 +8,7 @@
     "start-with-cypress": "npm-run-all --parallel start cy:open",
     "build": "webpack --config ./webpack.prod.js",
     "build:dev": "webpack --config ./webpack.dev.js",
-    "start-test-server": "live-server ./dist --port=8080 --https=./node_modules/live-server-https",
+    "start-test-server": "live-server ./dist --no-browser --port=8080 --https=./node_modules/live-server-https",
     "test:all": "npm-run-all --parallel test test:e2e",
     "test": "jest --coverage",
     "test:no-coverage": "jest",
