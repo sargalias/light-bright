@@ -2,3 +2,5 @@
 node_modules/
 dist/
 coverage/
+cypress/videos
+cypress/screenshots
