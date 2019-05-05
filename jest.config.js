@@ -5,6 +5,7 @@ module.exports = {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
 
     '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
   },
   coverageThreshold: {
     global: {
