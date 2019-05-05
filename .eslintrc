@@ -16,7 +16,8 @@
     "no-secrets",
     "xss",
     "jest",
-    "cypress"
+    "cypress",
+    "import"
   ],
   "rules": {
     "no-loops/no-loops": 2,
@@ -40,5 +41,12 @@
         "jest/valid-expect": 0
       }
     }
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.prod.js"
+      }
+    }
+  }
 }
