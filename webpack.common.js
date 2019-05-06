@@ -21,6 +21,7 @@ module.exports = env => {
       extensions: ['.js', '.jsx'],
       alias: {
         components: path.resolve(__dirname, 'src/components/'),
+        layout: path.resolve(__dirname, 'src/layout/'),
         pages: path.resolve(__dirname, 'src/pages/'),
         utilities: path.resolve(__dirname, 'src/utilities/'),
         base: path.resolve(__dirname, 'src/base/'),

@@ -5,6 +5,7 @@ module.exports = {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
 
     '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^layout/(.*)$': '<rootDir>/src/layout/$1',
     '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
     '^base/(.*)$': '<rootDir>/src/base/$1',
