@@ -1,0 +1,11 @@
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-top: 2px solid black;
+  background-color: $color-footer;
+
+  &_text {
+    margin: 0;
+  }
+}

@@ -1,12 +1,16 @@
 import React from 'react';
+import bemUtils from 'utilities/bemUtils';
+import styles from './Footer.scss';
 
-const Footer = () => (
-  <div>
-    <p>
+const b = bemUtils(styles);
+
+const Footer = ({ parentClass }) => (
+  <div className={b('', '', parentClass)}>
+    <p className={b('text')}>
       &copy; Spyros Argalias
       {new Date().getFullYear()}
     </p>
-    <p>
+    <p className={b('text')}>
       <a
         href="https://github.com/sargalias/light-bright"
         target="_blank"

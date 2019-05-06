@@ -1,0 +1,12 @@
+.board {
+  display: grid;
+  width: 100%;
+  max-height: 2000px;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 2px;
+  grid-auto-rows: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(4rem, 1fr));
+  justify-items: center;
+}
