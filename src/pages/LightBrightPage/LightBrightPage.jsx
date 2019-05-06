@@ -7,12 +7,12 @@ import styles from './LightBrightPage.scss';
 const b = bemUtils(styles);
 
 const LightBrightPage = () => (
-  <>
-    <main className={b()}>
+  <div className={b()}>
+    <main>
       <LightBrightApp parentClass={b('lightBrightApp')} />
     </main>
     <Footer />
-  </>
+  </div>
 );
 
 export default LightBrightPage;

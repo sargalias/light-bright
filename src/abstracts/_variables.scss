@@ -4,14 +4,27 @@
   --color-footer: lightblue;
 
   // Spacing
-  --padding-section: 2rem;
+  --m-section: 2rem;
+  --p-min: 0;
 
   // Board
-  --cell-size: 3rem;
+  --cell-size: 2.5rem;
   --max-height-board: 150rem;
 
   // Other
-  --max-width: 50rem;
+  --max-width-md: 30rem;
+  --max-width-lg: 60rem;
   --border: 2px solid var(--color-border);
   --border-radius-sm: 0.2rem;
+
+  // Breakpoints
+}
+
+$br-sm: 30rem;
+$br-md: 50rem;
+
+@media screen and (min-width: $br-sm) {
+  :root {
+    --p-min: 1rem;
+  }
 }

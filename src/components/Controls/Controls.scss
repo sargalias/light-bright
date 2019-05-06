@@ -1,4 +1,6 @@
 .Controls {
+  @include container-md();
+
   display: flex;
   justify-content: space-between;
 }

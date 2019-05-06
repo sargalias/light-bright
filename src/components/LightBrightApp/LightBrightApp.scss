@@ -1,15 +1,17 @@
 .LightBrightApp {
-  margin: 0;
+  @include container-lg();
 
   &_mainContentHeader {
-    margin: 2rem;
+    margin: var(--m-section);
   }
 
   &_lightBrightGame {
-    margin-bottom: 2rem;
+    margin-bottom: var(--m-section);
   }
 
   &_instructions {
-    margin-bottom: 2rem;
+    margin-bottom: var(--m-section);
   }
+
+  padding: 0 var(--p-min);
 }

@@ -1,4 +1,6 @@
 .Instructions {
+  @include container-md();
+
   &_heading {
     text-align: center;
   }

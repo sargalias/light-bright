@@ -1,6 +1,4 @@
 .board {
-  @include container();
-
   display: grid;
   max-height: var(--max-height-board);
   align-items: center;
@@ -15,4 +13,8 @@
     minmax(calc(var(--cell-size) * 1.1), 1fr)
   );
   justify-items: center;
+
+  @include media-up($br-sm) {
+    padding: 0.5rem;
+  }
 }
