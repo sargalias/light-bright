@@ -1,4 +1,6 @@
 .board {
+  @include container();
+
   display: grid;
   max-height: var(--max-height-board);
   align-items: center;
