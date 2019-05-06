@@ -66,7 +66,7 @@ module.exports = env => {
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: ['./src/abstracts/**/*'],
+                resources: ['./src/abstracts/global/*.scss'],
               },
             },
           ],

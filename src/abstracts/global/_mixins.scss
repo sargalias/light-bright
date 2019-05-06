@@ -1,5 +1,11 @@
 @import './variables';
 
+@mixin container-sm() {
+  max-width: var(--max-width-sm);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @mixin container-md() {
   max-width: var(--max-width-md);
   margin-right: auto;

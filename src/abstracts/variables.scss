@@ -12,16 +12,14 @@
   --max-height-board: 150rem;
 
   // Other
-  --max-width-md: 30rem;
+  --max-width-sm: 30rem;
+  --max-width-md: 40rem;
   --max-width-lg: 60rem;
   --border: 2px solid var(--color-border);
   --border-radius-sm: 0.2rem;
 
   // Breakpoints
 }
-
-$br-sm: 30rem;
-$br-md: 50rem;
 
 @media screen and (min-width: $br-sm) {
   :root {
