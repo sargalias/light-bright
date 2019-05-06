@@ -8,5 +8,7 @@ module.exports = {
   rules: {
     'at-rule-empty-line-before': 'always',
     'sh-waqar/declaration-use-variable': [['color', 'background-color']],
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
   },
 };
