@@ -8,13 +8,20 @@ const Instructions = ({ parentClass }) => (
   <section className={b('', '', parentClass)}>
     <h2 className={b('heading')}>Instructions</h2>
     <ul>
-      <li>Click: Paint a circle with a unique color.</li>
       <li>
-        Click on a circle, then drag: Generate a unique color and paint circles
-        with it.
+        <strong>Click:</strong> Paint a circle with a unique color.
       </li>
-      <li>Reset last color: Unpaint the most recently painted circles.</li>
-      <li>Reset all: Unpaint all circles.</li>
+      <li>
+        <strong>Click on a circle, then drag:</strong> Generate a unique color
+        and paint circles with it.
+      </li>
+      <li>
+        <strong>Reset last color:</strong> Unpaint the most recently painted
+        circles.
+      </li>
+      <li>
+        <strong>Reset all:</strong> Unpaint all circles.
+      </li>
     </ul>
   </section>
 );

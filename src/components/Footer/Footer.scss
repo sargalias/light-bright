@@ -1,9 +1,8 @@
 .Footer {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
-  border-top: 2px solid black;
-  background-color: $color-footer;
+  padding: var(--padding-section);
+  background-color: var(--color-footer);
 
   &_text {
     margin: 0;

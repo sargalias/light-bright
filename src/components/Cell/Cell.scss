@@ -1,6 +1,6 @@
 .Cell {
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 2px solid black;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: var(--border);
   border-radius: 50%;
 }

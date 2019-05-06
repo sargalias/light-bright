@@ -30,7 +30,7 @@ exports[`test 1`] = `
         </button>
       </div>
       <div
-        class="_board"
+        class=""
       >
         <div
           class=""
@@ -274,6 +274,41 @@ exports[`test 1`] = `
         />
       </div>
     </div>
+    <section
+      class="_instructions"
+    >
+      <h2
+        class="_heading"
+      >
+        Instructions
+      </h2>
+      <ul>
+        <li>
+          <strong>
+            Click:
+          </strong>
+           Paint a circle with a unique color.
+        </li>
+        <li>
+          <strong>
+            Click on a circle, then drag:
+          </strong>
+           Generate a unique color and paint circles with it.
+        </li>
+        <li>
+          <strong>
+            Reset last color:
+          </strong>
+           Unpaint the most recently painted circles.
+        </li>
+        <li>
+          <strong>
+            Reset all:
+          </strong>
+           Unpaint all circles.
+        </li>
+      </ul>
+    </section>
     <div
       class=""
     >

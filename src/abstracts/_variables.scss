@@ -1,1 +1,16 @@
-$color-footer: lightblue;
+:root {
+  // Colors
+  --color-border: darkblue;
+  --color-footer: lightblue;
+
+  // Spacing
+  --padding-section: 2rem;
+
+  // Board
+  --cell-size: 3rem;
+  --max-height-board: 150rem;
+
+  // Other
+  --border: 2px solid var(--color-border);
+  --border-radius-sm: 0.2rem;
+}
