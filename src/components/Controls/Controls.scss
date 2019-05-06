@@ -1,5 +1,5 @@
 .Controls {
-  @include container-md();
+  @include container-sm();
 
   display: flex;
   justify-content: space-between;

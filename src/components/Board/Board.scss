@@ -1,5 +1,6 @@
 .board {
   display: grid;
+  overflow: hidden;
   max-height: var(--max-height-board);
   align-items: center;
   border: var(--border);

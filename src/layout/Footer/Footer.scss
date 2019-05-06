@@ -1,8 +1,13 @@
 .Footer {
-  display: flex;
-  justify-content: space-between;
   padding: var(--m-section);
   background-color: var(--color-footer);
+
+  &_container {
+    @include container-md();
+
+    display: flex;
+    justify-content: space-between;
+  }
 
   &_text {
     margin: 0;

@@ -1,5 +1,5 @@
 .Instructions {
-  @include container-md();
+  @include container-sm();
 
   &_heading {
     text-align: center;
