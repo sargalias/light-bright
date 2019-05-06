@@ -62,12 +62,12 @@ module.exports = env => {
                 sourceMap,
               },
             },
-            // {
-            // loader: 'sass-resources-loader',
-            // options: {
-            // resources: ['./src/abstracts/**/*'],
-            // },
-            // },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: ['./src/abstracts/**/*'],
+              },
+            },
           ],
         },
       ],
