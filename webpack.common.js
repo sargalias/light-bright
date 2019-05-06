@@ -63,7 +63,9 @@ module.exports = env => {
               loader: 'sass-resources-loader',
               options: {
                 resources: [
-                  /* array of paths */
+                  /* './src/abstracts/global/*.scss */
+                  // These will be included in every file. Make sure you only globally include Sass things like Sass variables and mixins.
+                  // E.g. if you include CSS custom properties, they'll be imported multiple times.
                 ],
               },
             },
