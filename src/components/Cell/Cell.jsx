@@ -4,6 +4,8 @@ import styles from './Cell.scss';
 
 const b = bemUtils(styles);
 
-const Cell = ({ parentClass }) => <div className={b('', '', parentClass)} />;
+const Cell = ({ parentClass, testId }) => (
+  <div className={b('', '', parentClass)} data-testid={testId} />
+);
 
 export default Cell;

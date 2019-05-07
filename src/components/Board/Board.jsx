@@ -6,11 +6,11 @@ import styles from './Board.scss';
 const b = bemUtils(styles);
 
 const createCells = num => {
-  return Array.from({ length: num }, (el, i) => <Cell key={i} />);
+  return Array.from({ length: num }, (el, i) => <Cell key={i} testId={i} />);
 };
 
 const Board = ({ parentClass }) => (
-  <div className={b('', '', parentClass)}>{createCells(80)}</div>
+  <div className={b('', '', parentClass)}>{createCells(300)}</div>
 );
 
 export default Board;
