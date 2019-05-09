@@ -5,12 +5,12 @@ import styles from './Board.scss';
 
 const b = bemUtils(styles);
 
-const createCells = num => {
-  return Array.from({ length: num }, (el, i) => <Cell key={i} testId={i} />);
-};
-
-const Board = ({ parentClass }) => (
-  <div className={b('', '', parentClass)}>{createCells(300)}</div>
+const Board = ({ parentClass, cells }) => (
+  <div className={b('', '', parentClass)}>
+    {cells.map((el, i) => (
+      <Cell key={i} testId={i} />
+    ))}
+  </div>
 );
 
 export default Board;

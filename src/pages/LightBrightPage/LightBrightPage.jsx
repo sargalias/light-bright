@@ -9,7 +9,7 @@ const b = bemUtils(styles);
 const LightBrightPage = () => (
   <div className={b()}>
     <main>
-      <LightBrightApp parentClass={b('lightBrightApp')} />
+      <LightBrightApp parentClass={b('lightBrightApp')} numCells={300} />
     </main>
     <Footer />
   </div>
