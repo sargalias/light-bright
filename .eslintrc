@@ -34,7 +34,8 @@
   },
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "overrides": [
     {
