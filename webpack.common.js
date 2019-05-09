@@ -20,7 +20,7 @@ module.exports = env => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        /* e.g. components: path.resolve(__dirname, 'src/components/') */
+        testUtils: path.resolve(__dirname, './testUtils/'),
       },
     },
     module: {
