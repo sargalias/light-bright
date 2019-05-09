@@ -5,10 +5,10 @@ import styles from './Board.scss';
 
 const b = bemUtils(styles);
 
-const Board = ({ parentClass, cells }) => (
+const Board = ({ parentClass, cells, handleCellClick }) => (
   <div className={b('', '', parentClass)}>
-    {cells.map((el, i) => (
-      <Cell key={i} testId={i} />
+    {cells.map((cell, i) => (
+      <Cell key={i} index={i} handleClick={handleCellClick} style={cell} />
     ))}
   </div>
 );

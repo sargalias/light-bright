@@ -4,8 +4,14 @@ import styles from './Cell.scss';
 
 const b = bemUtils(styles);
 
-const Cell = ({ parentClass, testId }) => (
-  <div className={b('', '', parentClass)} data-testid={testId} />
+const Cell = ({ parentClass, index, handleClick, style }) => (
+  <div
+    className={b('', '', parentClass)}
+    data-testid={index}
+    data-cell={index}
+    onClick={handleClick}
+    style={{ backgroundImage: style }}
+  />
 );
 
 export default Cell;

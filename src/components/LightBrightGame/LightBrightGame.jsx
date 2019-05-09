@@ -6,10 +6,10 @@ import styles from './LightBrightGame.scss';
 
 const b = bemUtils(styles);
 
-const LightBrightGame = ({ parentClass, cells }) => (
+const LightBrightGame = ({ parentClass, cells, handleCellClick }) => (
   <div className={b('', '', parentClass)}>
     <Controls parentClass={b('controls')} />
-    <Board cells={cells} />
+    <Board cells={cells} handleCellClick={handleCellClick} />
   </div>
 );
 
