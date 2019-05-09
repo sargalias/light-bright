@@ -7,7 +7,7 @@ import styles from './LightBrightApp.scss';
 
 const b = bemUtils(styles);
 
-const LightBrightPage = ({ parentClass }) => (
+const LightBrightApp = ({ parentClass }) => (
   <div className={b('', '', parentClass)}>
     <MainContentHeader parentClass={b('mainContentHeader')} />
     <LightBrightGame parentClass={b('lightBrightGame')} />
@@ -15,4 +15,4 @@ const LightBrightPage = ({ parentClass }) => (
   </div>
 );
 
-export default LightBrightPage;
+export default LightBrightApp;
