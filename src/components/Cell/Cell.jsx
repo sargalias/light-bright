@@ -1,16 +1,14 @@
 import React from 'react';
-import bemUtils from 'utilities/bemUtils';
 import styles from './Cell.scss';
 
-const b = bemUtils(styles);
-
-const Cell = ({ parentClass, index, handleClick, style }) => (
+const Cell = ({ parentClass, index, handleClick, hue }) => (
   <div
-    className={b('', '', parentClass)}
+    className={`${styles.Cell} ${hue ? styles.Cell___isOn : ''} ${parentClass ||
+      ''}`}
     data-testid={index}
     data-cell={index}
     onClick={handleClick}
-    style={{ backgroundImage: style }}
+    style={{ '--hue': '150' }}
   />
 );
 
