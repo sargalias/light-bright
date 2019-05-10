@@ -10,12 +10,14 @@ describe('LightBrightApp', () => {
     expect(container.querySelectorAll('[data-cell]').length).toBe(30);
   });
 
-  /*
   test('click on cell should color it in', () => {
-    const { getByTestId } = render(<LightBrightApp />);
-    const cell30 = getByTestId('30');
-    fireEvent.click(cell30);
-    expect(cell30.style.backgroundImage).not.toBeFalsy();
+    // jsdom can't test CSS custom properties yet.
+    const { getByTestId } = render(<LightBrightApp numCells={5} />);
+    const cell = getByTestId('2');
+
+    fireEvent.click(cell);
+
+    expect(cell.classList.contains('Cell___isOn')).toBe(true);
+    expect(cell.classList.contains('Cell')).toBe(true);
   });
-  */
 });

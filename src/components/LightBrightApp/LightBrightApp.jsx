@@ -14,7 +14,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     e => {
       const cellIndex = e.target.getAttribute('data-cell');
       const newCells = Array.from(cells);
-      newCells[cellIndex] = 'linear-gradient(red, blue)'; // eslint-disable-line security/detect-object-injection
+      newCells[cellIndex] = '250'; // eslint-disable-line security/detect-object-injection
       setCells(newCells);
     },
     [cells],

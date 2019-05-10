@@ -9,7 +9,7 @@ const Cell = ({ parentClass, index, handleClick, hue }) => (
     data-testid={index}
     data-cell={index}
     onClick={handleClick}
-    style={{ '--hue': '150' }}
+    style={{ '--hue': hue }}
   />
 );
 
