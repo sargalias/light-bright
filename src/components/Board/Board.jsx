@@ -8,7 +8,7 @@ const b = bemUtils(styles);
 const Board = ({ parentClass, cells, handleCellClick }) => (
   <div className={b('', '', parentClass)}>
     {cells.map((cell, i) => (
-      <Cell key={i} index={i} handleClick={handleCellClick} style={cell} />
+      <Cell key={i} index={i} handleClick={handleCellClick} hue={cell} />
     ))}
   </div>
 );
