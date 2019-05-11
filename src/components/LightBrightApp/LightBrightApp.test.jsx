@@ -48,7 +48,7 @@ describe('LightBrightApp', () => {
 
       // Further mouseovers should have no effect
       fireEvent.mouseOver(cell4);
-      expect(cell3.classList.contains('Cell___isOn')).toBe(false);
+      expect(cell4.classList.contains('Cell___isOn')).toBe(false);
     });
   });
 });

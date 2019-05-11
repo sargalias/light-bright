@@ -11,6 +11,7 @@ const LightBrightGame = ({
   cells,
   handleCellClick,
   handleMouseOver,
+  handleBoardMouseUp,
 }) => (
   <div className={b('', '', parentClass)}>
     <Controls parentClass={b('controls')} />
@@ -18,6 +19,7 @@ const LightBrightGame = ({
       cells={cells}
       handleCellClick={handleCellClick}
       handleMouseOver={handleMouseOver}
+      handleBoardMouseUp={handleBoardMouseUp}
     />
   </div>
 );
