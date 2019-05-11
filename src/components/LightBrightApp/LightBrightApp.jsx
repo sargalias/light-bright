@@ -22,6 +22,14 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     [cells],
   );
 
+  const handleMouseOver = e => {
+    const cellIndex = Number(e.target.getAttribute('data-cell'));
+    const newCells = Array.from(cells, (cell, i) =>
+      i === cellIndex ? randomHue() : cell,
+    );
+    setCells(newCells);
+  };
+
   return (
     <div className={b('', '', parentClass)}>
       <MainContentHeader parentClass={b('mainContentHeader')} />
@@ -29,6 +37,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
         parentClass={b('lightBrightGame')}
         cells={cells}
         handleCellClick={handleCellClick}
+        handleMouseOver={handleMouseOver}
       />
       <Instructions parentClass={b('instructions')} />
     </div>
