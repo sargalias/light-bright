@@ -27,7 +27,14 @@ describe('LightBrightApp', () => {
       const cell1 = getByTestId('1');
       const cell2 = getByTestId('2');
       const cell3 = getByTestId('3');
+      const cell4 = getByTestId('4');
+      const board = getByTestId('board');
 
+      // Don't color cells if mousedown has not happened yet
+      fireEvent.mouseOver(cell2);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+
+      // Trigger mousedown and mouseover
       fireEvent.mouseDown(cell1);
       fireEvent.mouseOver(cell2);
       fireEvent.mouseOver(cell3);
@@ -35,6 +42,13 @@ describe('LightBrightApp', () => {
       expect(cell1.classList.contains('Cell___isOn')).toBe(true);
       expect(cell2.classList.contains('Cell___isOn')).toBe(true);
       expect(cell3.classList.contains('Cell___isOn')).toBe(true);
+
+      // Trigger mouseup on board
+      fireEvent.mouseUp(board);
+
+      // Further mouseovers should have no effect
+      fireEvent.mouseOver(cell4);
+      expect(cell3.classList.contains('Cell___isOn')).toBe(false);
     });
   });
 });

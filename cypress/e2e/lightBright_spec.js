@@ -65,7 +65,7 @@ describe('drag functionality', () => {
       .trigger('mouseover')
       .then(haveBackgroundImage);
 
-    //end drag
+    // end drag
     cy.getByTestId('32').trigger('mouseup');
     cy.getByTestId('33')
       .trigger('mouseover')
