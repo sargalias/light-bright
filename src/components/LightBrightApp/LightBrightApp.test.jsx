@@ -15,7 +15,7 @@ describe('LightBrightApp', () => {
     const { getByTestId } = render(<LightBrightApp numCells={5} />);
     const cell = getByTestId('2');
 
-    fireEvent.click(cell);
+    fireEvent.mouseDown(cell);
 
     expect(cell.classList.contains('Cell___isOn')).toBe(true);
     expect(cell.classList.contains('Cell')).toBe(true);

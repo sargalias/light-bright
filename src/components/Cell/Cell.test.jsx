@@ -13,14 +13,31 @@ test('Cell should have correct styling when color prop exists', () => {
   // TODO: jsdom can't test for CSS custom properties. Use a different testing environment
 });
 
-test('Cell should fire its handleClick prop when clicked', () => {
-  const mockHandleClick = jest.fn();
-  const { getByTestId } = render(
-    <Cell index="1" handleClick={mockHandleClick} />,
-  );
-  const cellNode = getByTestId('1');
+describe('Cell events', () => {
+  test('Cell should fire its handleClick prop on mousedown', () => {
+    const mockHandleClick = jest.fn();
+    const { getByTestId } = render(
+      <Cell index="1" handleClick={mockHandleClick} />,
+    );
+    const cellNode = getByTestId('1');
 
-  fireEvent.click(cellNode);
+    fireEvent.mouseDown(cellNode);
 
-  expect(mockHandleClick).toHaveBeenCalledTimes(1);
+    expect(mockHandleClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('Cell should fire its handleClick prop on keydown with "Space" or "Enter" but not other keys', () => {
+    const mockHandleClick = jest.fn();
+    const { getByTestId } = render(
+      <Cell index="1" handleClick={mockHandleClick} />,
+    );
+    const cellNode = getByTestId('1');
+
+    fireEvent.keyDown(cellNode, { key: 'Enter' });
+    fireEvent.keyDown(cellNode, { key: ' ' });
+    fireEvent.keyDown(cellNode, { key: 'Tab' });
+    fireEvent.keyDown(cellNode, { key: 'A' });
+
+    expect(mockHandleClick).toHaveBeenCalledTimes(2);
+  });
 });
