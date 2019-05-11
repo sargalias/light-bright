@@ -1,7 +1,8 @@
 const haveBackgroundImage = jCell =>
   expect(getComputedStyle(jCell[0]).backgroundImage).not.eq('none');
 
-const notHaveBackgroundImage = jCell => !haveBackgroundImage(jCell);
+const notHaveBackgroundImage = jCell =>
+  expect(getComputedStyle(jCell[0]).backgroundImage).eq('none');
 
 describe('clicks', () => {
   it('should color in a cell', () => {});
@@ -12,7 +13,7 @@ describe('accessibility events', () => {
     cy.visit('/');
     cy.getByTestId('30')
       .click()
-      .should('not.css', 'background-image', 'none');
+      .then(haveBackgroundImage);
   });
 
   it('should color in a cell on keyDown when key is "Enter" or Space', () => {
@@ -31,6 +32,7 @@ describe('accessibility events', () => {
   });
 
   it('should do nothing when keys are not "Enter" or "Space"', () => {
+    cy.visit('/');
     cy.getByTestId('32')
       .trigger('keydown', {
         key: 'A',
