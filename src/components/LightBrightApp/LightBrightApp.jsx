@@ -12,9 +12,10 @@ const LightBrightApp = ({ parentClass, numCells }) => {
 
   const handleCellClick = useCallback(
     e => {
-      const cellIndex = e.target.getAttribute('data-cell');
-      const newCells = Array.from(cells);
-      newCells[cellIndex] = '250'; // eslint-disable-line security/detect-object-injection
+      const cellIndex = Number(e.target.getAttribute('data-cell'));
+      const newCells = Array.from(cells, (cell, i) =>
+        i === cellIndex ? '250' : cell,
+      );
       setCells(newCells);
     },
     [cells],
