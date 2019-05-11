@@ -21,6 +21,7 @@
     "react-hooks"
   ],
   "rules": {
+    "no-use-before-define": 0,
     "no-loops/no-loops": 2,
     "promise/catch-or-return": 0,
     "promise/always-return": 0,
