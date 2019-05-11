@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import MainContentHeader from 'components/MainContentHeader';
 import LightBrightGame from 'components/LightBrightGame';
 import Instructions from 'components/Instructions';
+import randomHue from 'logic/randomHue';
 import bemUtils from 'utilities/bemUtils';
 import styles from './LightBrightApp.scss';
 
@@ -14,7 +15,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     e => {
       const cellIndex = Number(e.target.getAttribute('data-cell'));
       const newCells = Array.from(cells, (cell, i) =>
-        i === cellIndex ? '250' : cell,
+        i === cellIndex ? randomHue() : cell,
       );
       setCells(newCells);
     },
