@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Cell.scss';
 
-const Cell = ({ parentClass, index, handleClick, hue }) => {
+const Cell = ({ parentClass, index, handleClick, handleMouseOver, hue }) => {
   const handleKeyDown = e => {
     if (['Enter', ' '].includes(e.key)) {
       handleClick(e);
@@ -18,7 +18,10 @@ const Cell = ({ parentClass, index, handleClick, hue }) => {
       data-cell={index}
       onMouseDown={handleClick}
       onKeyDown={handleKeyDown}
+      onMouseOver={handleMouseOver}
+      onFocus={handleMouseOver}
       style={{ '--hue': hue }}
+      draggable
     />
   );
 };
