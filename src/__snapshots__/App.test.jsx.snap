@@ -35,6 +35,8 @@ exports[`test 1`] = `
           </div>
           <div
             class=""
+            data-testid="board"
+            role="presentation"
           >
             <button
               class="Cell  "

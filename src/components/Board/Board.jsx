@@ -5,8 +5,19 @@ import styles from './Board.scss';
 
 const b = bemUtils(styles);
 
-const Board = ({ parentClass, cells, handleCellClick, handleMouseOver }) => (
-  <div className={b('', '', parentClass)}>
+const Board = ({
+  parentClass,
+  cells,
+  handleCellClick,
+  handleMouseOver,
+  handleBoardMouseUp,
+}) => (
+  <div
+    className={b('', '', parentClass)}
+    data-testid="board"
+    onMouseUp={handleBoardMouseUp}
+    role="presentation"
+  >
     {cells.map((cell, i) => (
       <Cell
         key={i} // eslint-disable-line react/no-array-index-key
