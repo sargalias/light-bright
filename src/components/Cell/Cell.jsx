@@ -21,7 +21,6 @@ const Cell = ({ parentClass, index, handleClick, handleMouseOver, hue }) => {
       onMouseOver={handleMouseOver}
       onFocus={handleMouseOver}
       style={{ '--hue': hue }}
-      draggable
     />
   );
 };
