@@ -40,4 +40,16 @@ describe('Cell events', () => {
 
     expect(mockHandleClick).toHaveBeenCalledTimes(2);
   });
+
+  test('Cell being moused over should trigger handleMouseOver prop', () => {
+    const mockHandleMouseOver = jest.fn();
+    const { getByTestId } = render(
+      <Cell index="1" handleMouseOver={mockHandleMouseOver} />,
+    );
+    const cellNode = getByTestId('1');
+
+    fireEvent.mouseOver(cellNode);
+
+    expect(mockHandleMouseOver).toHaveBeenCalledTimes(1);
+  });
 });
