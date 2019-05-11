@@ -10,9 +10,11 @@ const b = bemUtils(styles);
 
 const LightBrightApp = ({ parentClass, numCells }) => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
+  const [isDragging, setIsDragging] = useState(false);
 
   const handleCellClick = useCallback(
     e => {
+      setIsDragging(true);
       const cellIndex = Number(e.target.getAttribute('data-cell'));
       const newCells = Array.from(cells, (cell, i) =>
         i === cellIndex ? randomHue() : cell,
@@ -23,11 +25,13 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   );
 
   const handleMouseOver = e => {
-    const cellIndex = Number(e.target.getAttribute('data-cell'));
-    const newCells = Array.from(cells, (cell, i) =>
-      i === cellIndex ? randomHue() : cell,
-    );
-    setCells(newCells);
+    if (isDragging) {
+      const cellIndex = Number(e.target.getAttribute('data-cell'));
+      const newCells = Array.from(cells, (cell, i) =>
+        i === cellIndex ? randomHue() : cell,
+      );
+      setCells(newCells);
+    }
   };
 
   return (
