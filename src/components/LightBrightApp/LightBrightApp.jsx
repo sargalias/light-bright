@@ -12,9 +12,8 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
   const [isDragging, setIsDragging] = useState(false);
 
-  const handleCellClick = useCallback(
+  const lightCell = useCallback(
     e => {
-      setIsDragging(true);
       const cellIndex = Number(e.target.getAttribute('data-cell'));
       const newCells = Array.from(cells, (cell, i) =>
         i === cellIndex ? randomHue() : cell,
@@ -24,15 +23,22 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     [cells],
   );
 
-  const handleMouseOver = e => {
-    if (isDragging) {
-      const cellIndex = Number(e.target.getAttribute('data-cell'));
-      const newCells = Array.from(cells, (cell, i) =>
-        i === cellIndex ? randomHue() : cell,
-      );
-      setCells(newCells);
-    }
-  };
+  const handleCellClick = useCallback(
+    e => {
+      setIsDragging(true);
+      lightCell(e);
+    },
+    [lightCell],
+  );
+
+  const handleMouseOver = useCallback(
+    e => {
+      if (isDragging) {
+        lightCell(e);
+      }
+    },
+    [lightCell, isDragging],
+  );
 
   return (
     <div className={b('', '', parentClass)}>
