@@ -20,4 +20,21 @@ describe('LightBrightApp', () => {
     expect(cell.classList.contains('Cell___isOn')).toBe(true);
     expect(cell.classList.contains('Cell')).toBe(true);
   });
+
+  describe('drag functionality', () => {
+    test('when triggering mousedown on a cell, dragging over other cells should give them color', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+      const cell3 = getByTestId('3');
+
+      fireEvent.mouseDown(cell1);
+      fireEvent.mouseOver(cell2);
+      fireEvent.mouseOver(cell3);
+
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell3.classList.contains('Cell___isOn')).toBe(true);
+    });
+  });
 });

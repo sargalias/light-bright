@@ -1,3 +1,8 @@
+const haveBackgroundImage = jCell =>
+  expect(getComputedStyle(jCell[0]).backgroundImage).not.eq('none');
+
+const notHaveBackgroundImage = jCell => !haveBackgroundImage(jCell);
+
 describe('clicks', () => {
   it('should color in a cell', () => {});
 });
@@ -16,13 +21,13 @@ describe('accessibility events', () => {
       .trigger('keydown', {
         key: 'Enter',
       })
-      .should('not.css', 'background-image', 'none');
+      .then(haveBackgroundImage);
 
     cy.getByTestId('31')
       .trigger('keydown', {
         key: ' ',
       })
-      .should('not.css', 'background-image', 'none');
+      .then(haveBackgroundImage);
   });
 
   it('should do nothing when keys are not "Enter" or "Space"', () => {
@@ -30,12 +35,28 @@ describe('accessibility events', () => {
       .trigger('keydown', {
         key: 'A',
       })
-      .should('css', 'background-image', 'none');
+      .then(notHaveBackgroundImage);
 
     cy.getByTestId('32')
       .trigger('keydown', {
         key: 'b',
       })
-      .should('css', 'background-image', 'none');
+      .then(notHaveBackgroundImage);
+  });
+});
+
+describe('drag functionality', () => {
+  it('basic drag', () => {
+    cy.visit('/');
+    cy.getByTestId('30')
+      .trigger('mousedown')
+      .then(haveBackgroundImage);
+    cy.getByTestId('31')
+      .trigger('mouseover')
+      .then(haveBackgroundImage);
+    cy.getByTestId('32')
+      .trigger('mouseover')
+      .then(haveBackgroundImage);
+    cy.getByTestId('32').trigger('mouseup');
   });
 });
