@@ -51,6 +51,11 @@ describe('drag functionality', () => {
   it('basic drag', () => {
     cy.visit('/');
     cy.getByTestId('30')
+      .trigger('mouseover')
+      .then(notHaveBackgroundImage);
+
+    // begin drag
+    cy.getByTestId('30')
       .trigger('mousedown')
       .then(haveBackgroundImage);
     cy.getByTestId('31')
@@ -59,6 +64,11 @@ describe('drag functionality', () => {
     cy.getByTestId('32')
       .trigger('mouseover')
       .then(haveBackgroundImage);
+
+    //end drag
     cy.getByTestId('32').trigger('mouseup');
+    cy.getByTestId('33')
+      .trigger('mouseover')
+      .then(notHaveBackgroundImage);
   });
 });
