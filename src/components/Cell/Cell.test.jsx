@@ -4,13 +4,23 @@ import Cell from './Cell';
 
 afterEach(cleanup);
 
-test('Cell should have correct styling when color prop exists', () => {
-  const hue = '150';
-  const { getByTestId } = render(<Cell index="1" hue={hue} />);
-  const cellNode = getByTestId('1');
-  expect(cellNode.classList.contains('Cell')).toBe(true);
-  expect(cellNode.classList.contains('Cell___isOn')).toBe(true);
-  // TODO: jsdom can't test for CSS custom properties. Use a different testing environment
+describe('Cell styling', () => {
+  test('should be colored when hue prop exists', () => {
+    const hue = 150;
+    const { getByTestId } = render(<Cell index="1" hue={hue} />);
+    const cellNode = getByTestId('1');
+    expect(cellNode.classList.contains('Cell')).toBe(true);
+    expect(cellNode.classList.contains('Cell___isOn')).toBe(true);
+    // TODO: jsdom can't test for CSS custom properties. Use a different testing environment
+  });
+
+  test('should be colored when value of hue prop is 0 (edge case)', () => {
+    const hue = 0;
+    const { getByTestId } = render(<Cell index="1" hue={hue} />);
+    const cellNode = getByTestId('1');
+    expect(cellNode.classList.contains('Cell')).toBe(true);
+    expect(cellNode.classList.contains('Cell___isOn')).toBe(true);
+  });
 });
 
 describe('Cell events', () => {

@@ -11,9 +11,10 @@ const Cell = ({ parentClass, index, handleClick, handleMouseOver, hue }) => {
   return (
     <button
       type="button"
-      className={`${styles.Cell} ${
-        hue ? styles.Cell___isOn : ''
-      } ${parentClass || ''}`}
+      className={`
+        ${styles.Cell} ${Number.isInteger(hue) ? styles.Cell___isOn : ''}
+      ${parentClass || ''}
+      `}
       data-testid={index}
       data-cell={index}
       onMouseDown={handleClick}
