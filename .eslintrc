@@ -10,7 +10,6 @@
     "plugin:cypress/recommended"
   ],
   "plugins": [
-    "no-loops",
     "no-use-extend-native",
     "promise",
     "no-secrets",
@@ -21,7 +20,7 @@
     "react-hooks"
   ],
   "rules": {
-    "no-loops/no-loops": 2,
+    "no-plusplus": 0,
     "promise/catch-or-return": 0,
     "promise/always-return": 0,
     "promise/valid-params": 2,
