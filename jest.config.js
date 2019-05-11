@@ -9,6 +9,7 @@ module.exports = {
     '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
     '^base/(.*)$': '<rootDir>/src/base/$1',
+    '^logic/(.*)$': '<rootDir>/src/logic/$1',
     '^testUtils$': '<rootDir>/testUtils',
   },
   coverageThreshold: {

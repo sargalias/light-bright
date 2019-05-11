@@ -25,6 +25,7 @@ module.exports = env => {
         pages: path.resolve(__dirname, 'src/pages/'),
         utilities: path.resolve(__dirname, 'src/utilities/'),
         base: path.resolve(__dirname, 'src/base/'),
+        logic: path.resolve(__dirname, 'src/logic/'),
         testUtils: path.resolve(__dirname, './testUtils/'),
       },
     },
