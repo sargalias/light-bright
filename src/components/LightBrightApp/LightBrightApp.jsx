@@ -31,7 +31,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     [lightCell],
   );
 
-  const handleMouseOver = useCallback(
+  const handleCellMouseOver = useCallback(
     e => {
       if (isDragging) {
         lightCell(e);
@@ -51,7 +51,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
         parentClass={b('lightBrightGame')}
         cells={cells}
         handleCellClick={handleCellClick}
-        handleMouseOver={handleMouseOver}
+        handleCellMouseOver={handleCellMouseOver}
         handleBoardMouseUp={handleBoardMouseUp}
       />
       <Instructions parentClass={b('instructions')} />
