@@ -4,10 +4,6 @@ const haveBackgroundImage = jCell =>
 const notHaveBackgroundImage = jCell =>
   expect(getComputedStyle(jCell[0]).backgroundImage).eq('none');
 
-describe('clicks', () => {
-  it('should color in a cell', () => {});
-});
-
 describe('accessibility events', () => {
   it('should color in a cell on mouseDown', () => {
     cy.visit('/');
