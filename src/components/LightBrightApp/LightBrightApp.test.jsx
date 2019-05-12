@@ -50,5 +50,17 @@ describe('LightBrightApp', () => {
       fireEvent.mouseOver(cell4);
       expect(cell4.classList.contains('Cell___isOn')).toBe(false);
     });
+
+    test('should not trigger on keypress with {Enter} or {Space}', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+
+      fireEvent.keyDown(cell1, { key: 'Enter' });
+      fireEvent.mouseOver(cell2);
+
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(false);
+    });
   });
 });

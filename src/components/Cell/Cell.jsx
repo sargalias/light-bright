@@ -1,10 +1,17 @@
 import React from 'react';
 import styles from './Cell.scss';
 
-const Cell = ({ parentClass, index, handleClick, handleMouseOver, hue }) => {
+const Cell = ({
+  parentClass,
+  index,
+  handleClick,
+  handleMouseOver,
+  handleKeyPress,
+  hue,
+}) => {
   const handleKeyDown = e => {
     if (['Enter', ' '].includes(e.key)) {
-      handleClick(e);
+      handleKeyPress(e);
     }
   };
 

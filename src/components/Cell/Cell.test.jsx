@@ -37,9 +37,9 @@ describe('Cell events', () => {
   });
 
   test('Cell should fire its handleClick prop on keydown with "Space" or "Enter" but not other keys', () => {
-    const mockHandleClick = jest.fn();
+    const mockHandleKeyPress = jest.fn();
     const { getByTestId } = render(
-      <Cell index="1" handleClick={mockHandleClick} />,
+      <Cell index="1" handleKeyPress={mockHandleKeyPress} />,
     );
     const cellNode = getByTestId('1');
 
@@ -48,7 +48,7 @@ describe('Cell events', () => {
     fireEvent.keyDown(cellNode, { key: 'Tab' });
     fireEvent.keyDown(cellNode, { key: 'A' });
 
-    expect(mockHandleClick).toHaveBeenCalledTimes(2);
+    expect(mockHandleKeyPress).toHaveBeenCalledTimes(2);
   });
 
   test('Cell being moused over should trigger handleMouseOver prop', () => {
