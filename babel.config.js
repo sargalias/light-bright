@@ -5,7 +5,7 @@ module.exports = api => {
   const isTest = api.env('test');
   if (isTest) {
     presets.push('@babel/preset-env');
-    plugins.push('dynamic-import-node');
+    plugins.push('dynamic-import-node'); // eslint-disable-line no-secrets/no-secrets
   }
 
   return {
