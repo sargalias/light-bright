@@ -9,12 +9,6 @@ const Cell = ({
   handleKeyPress,
   hue,
 }) => {
-  const handleKeyDown = e => {
-    if (['Enter', ' '].includes(e.key)) {
-      handleKeyPress(e);
-    }
-  };
-
   return (
     <button
       type="button"
@@ -25,7 +19,7 @@ const Cell = ({
       data-testid={index}
       data-cell={index}
       onMouseDown={handleClick}
-      onKeyDown={handleKeyDown}
+      onKeyDown={handleKeyPress}
       onMouseOver={handleMouseOver}
       onFocus={handleMouseOver}
       style={{ '--hue': hue }}

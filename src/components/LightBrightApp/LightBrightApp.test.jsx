@@ -21,6 +21,21 @@ describe('LightBrightApp', () => {
     expect(cell.classList.contains('Cell')).toBe(true);
   });
 
+  test('keypress {Enter} or {Space} on Cell should color it in, but not other keys', () => {
+    const { getByTestId } = render(<LightBrightApp numCells={5} />);
+    const cell1 = getByTestId('1');
+    const cell2 = getByTestId('2');
+    const cell3 = getByTestId('3');
+
+    fireEvent.keyDown(cell1, { key: 'Enter' });
+    fireEvent.keyDown(cell2, { key: ' ' });
+    fireEvent.keyDown(cell3, { key: 'A' });
+
+    expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+    expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+    expect(cell3.classList.contains('Cell___isOn')).toBe(false);
+  });
+
   describe('drag functionality', () => {
     test('when triggering mousedown on a cell, dragging over other cells should give them color', () => {
       const { getByTestId } = render(<LightBrightApp numCells={5} />);
