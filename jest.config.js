@@ -20,4 +20,5 @@ module.exports = {
     },
   },
   coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/index.jsx'],
+  setupFiles: ['<rootDir>/node_modules/regenerator-runtime/runtime'],
 };
