@@ -18,62 +18,47 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     [],
   );
 
-  const lightCell = useCallback(
-    (cellIndex, newColor) => {
-      let color;
-
-      // isDragging is true and currentColor exists
-      if (isDragging && currentColor !== undefined) {
-        color = currentColor;
-      }
-      // Cell was clicked, so dragging started but hasn't been set by React yet.
-      // We pass in the newColor which wil be the currentColor next render.
-      else if (newColor) {
-        color = newColor;
-      }
-
-      // otherwise generate new color
-      else {
-        color = randomHue();
-      }
-      const newCells = Array.from(cells, (cell, i) =>
-        i === cellIndex ? color : cell,
-      );
-      setCells(newCells);
-    },
-    [cells, currentColor, isDragging],
+  const lightCells = useCallback(
+    (oldCells, cellIndexToColor, color) =>
+      Array.from(oldCells, (cell, i) =>
+        i === cellIndexToColor ? color : cell,
+      ),
+    [],
   );
 
   const handleCellClick = useCallback(
     e => {
       const cellIndex = getCellIndex(e);
       const newColor = randomHue();
+      const newCells = lightCells(cells, cellIndex, newColor);
       setCurrentColor(newColor);
       setIsDragging(true);
-
-      lightCell(cellIndex, newColor);
+      setCells(newCells);
     },
-    [lightCell, getCellIndex],
+    [getCellIndex, cells, lightCells],
   );
 
   const handleCellMouseOver = useCallback(
     e => {
       if (isDragging) {
         const cellIndex = getCellIndex(e);
-        lightCell(cellIndex);
+        const newCells = lightCells(cells, cellIndex, currentColor);
+        setCells(newCells);
       }
     },
-    [lightCell, isDragging, getCellIndex],
+    [cells, isDragging, currentColor, getCellIndex, lightCells],
   );
 
   const handleCellKeyPress = useCallback(
     e => {
       if (['Enter', ' '].includes(e.key)) {
         const cellIndex = getCellIndex(e);
-        lightCell(cellIndex);
+        const newColor = randomHue();
+        const newCells = lightCells(cells, cellIndex, newColor);
+        setCells(newCells);
       }
     },
-    [lightCell, getCellIndex],
+    [cells, getCellIndex, lightCells],
   );
 
   const handleBoardMouseUp = useCallback(() => {
