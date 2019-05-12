@@ -11,6 +11,7 @@ const b = bemUtils(styles);
 const LightBrightApp = ({ parentClass, numCells }) => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
   const [isDragging, setIsDragging] = useState(false);
+  const [currentColor, setCurrentColor] = useState();
 
   const getCellIndex = useCallback(
     e => Number(e.target.getAttribute('data-cell')),
@@ -18,20 +19,39 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   );
 
   const lightCell = useCallback(
-    cellIndex => {
+    (cellIndex, newColor) => {
+      let color;
+
+      // isDragging is true and currentColor exists
+      if (isDragging && currentColor !== undefined) {
+        color = currentColor;
+      }
+      // Cell was clicked, so dragging started but hasn't been set by React yet.
+      // We pass in the newColor which wil be the currentColor next render.
+      else if (newColor) {
+        color = newColor;
+      }
+
+      // otherwise generate new color
+      else {
+        color = randomHue();
+      }
       const newCells = Array.from(cells, (cell, i) =>
-        i === cellIndex ? randomHue() : cell,
+        i === cellIndex ? color : cell,
       );
       setCells(newCells);
     },
-    [cells],
+    [cells, currentColor, isDragging],
   );
 
   const handleCellClick = useCallback(
     e => {
-      setIsDragging(true);
       const cellIndex = getCellIndex(e);
-      lightCell(cellIndex);
+      const newColor = randomHue();
+      setCurrentColor(newColor);
+      setIsDragging(true);
+
+      lightCell(cellIndex, newColor);
     },
     [lightCell, getCellIndex],
   );
@@ -58,6 +78,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
 
   const handleBoardMouseUp = useCallback(() => {
     setIsDragging(false);
+    setCurrentColor(undefined);
   }, [setIsDragging]);
 
   return (
