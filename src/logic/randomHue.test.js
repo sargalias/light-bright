@@ -1,6 +1,11 @@
 import randomHue from './randomHue';
 
 describe('randomHue', () => {
+  beforeEach(() => {
+    jest.resetModules();
+    jest.resetAllMocks();
+  });
+
   test('should generate a hue value between 0 and 359', () => {
     for (let i = 0; i < 1000; i++) {
       expect(randomHue()).toBeGreaterThanOrEqual(0);
@@ -8,11 +13,27 @@ describe('randomHue', () => {
     }
   });
 
-  test('should generate numbers randomly', () => {
+  test('should generate unique colors until the first 360', () => {
     const numberSet = new Set();
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 360; i++) {
       numberSet.add(randomHue());
     }
-    expect(numberSet.size).toBeGreaterThan(50);
+    expect(numberSet.size).toBe(360);
+  });
+
+  test('should return colors that have been shuffled with the array-shuffle function', async () => {
+    const allHues = Array.from({ length: 360 }, (el, i) => i);
+    const mockHues = [10, 7, 5];
+    const mockShuffle = jest.fn(() => mockHues);
+
+    jest.doMock('array-shuffle', () => mockShuffle);
+    const { default: getRandomHue } = await import('./randomHue');
+
+    mockHues.forEach(el => {
+      const hue = getRandomHue();
+      expect(hue).toBe(el);
+    });
+    expect(mockShuffle).toHaveBeenCalledTimes(1);
+    expect(mockShuffle).toHaveBeenCalledWith(allHues);
   });
 });
