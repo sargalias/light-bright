@@ -16,8 +16,7 @@ const Board = ({
     className={b('', '', parentClass)}
     data-testid="board"
     onMouseUp={handleBoardMouseUp}
-    onMouseOut={handleBoardMouseUp}
-    onBlur={handleBoardMouseUp}
+    onMouseLeave={handleBoardMouseUp}
     role="presentation"
   >
     {cells.map((cell, i) => (
