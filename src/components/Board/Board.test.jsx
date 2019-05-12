@@ -4,7 +4,7 @@ import Board from './Board';
 
 afterEach(cleanup);
 
-test('Board should call its handleBoardMouseUp prop on mouseup event', () => {
+test('Board should call its handleBoardMouseUp prop on mouseup and mouseleave events', () => {
   jest.resetModules();
   jest.doMock('components/Cell', () => () => null);
   const mockHandleBoardMouseUp = jest.fn();
@@ -14,6 +14,7 @@ test('Board should call its handleBoardMouseUp prop on mouseup event', () => {
   const board = getByTestId('board');
 
   fireEvent.mouseUp(board);
+  fireEvent.mouseOut(board);
 
-  expect(mockHandleBoardMouseUp).toHaveBeenCalledTimes(1);
+  expect(mockHandleBoardMouseUp).toHaveBeenCalledTimes(2);
 });

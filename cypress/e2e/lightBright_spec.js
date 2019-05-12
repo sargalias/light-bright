@@ -48,8 +48,9 @@ describe('accessibility events', () => {
 });
 
 describe('drag functionality', () => {
-  it('basic drag', () => {
+  it('should start on mousedown and stop on mouseup or when the mouse leaves the board', () => {
     cy.visit('/');
+
     cy.getByTestId('30')
       .trigger('mouseover')
       .then(notHaveBackgroundImage);
@@ -66,8 +67,20 @@ describe('drag functionality', () => {
       .then(haveBackgroundImage);
 
     // end drag
-    cy.getByTestId('32').trigger('mouseup');
     cy.getByTestId('33')
+      .trigger('mouseup')
+      .trigger('mouseover')
+      .then(notHaveBackgroundImage);
+
+    // begin drag
+    cy.getByTestId('33')
+      .trigger('mousedown')
+      .then(haveBackgroundImage);
+
+    // end drag
+    cy.getByTestId('board').trigger('mouseout');
+
+    cy.getByTestId('34')
       .trigger('mouseover')
       .then(notHaveBackgroundImage);
   });
