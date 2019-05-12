@@ -8,23 +8,21 @@ const Cell = ({
   handleMouseOver,
   handleKeyPress,
   hue,
-}) => {
-  return (
-    <button
-      type="button"
-      className={`
+}) => (
+  <button
+    type="button"
+    className={`
         ${styles.Cell} ${Number.isInteger(hue) ? styles.Cell___isOn : ''}
       ${parentClass || ''}
       `}
-      data-testid={index}
-      data-cell={index}
-      onMouseDown={handleClick}
-      onKeyDown={handleKeyPress}
-      onMouseOver={handleMouseOver}
-      onFocus={handleMouseOver}
-      style={{ '--hue': hue }}
-    />
-  );
-};
+    data-testid={index}
+    data-cell={index}
+    onMouseDown={handleClick}
+    onKeyDown={handleKeyPress}
+    onMouseOver={handleMouseOver}
+    onFocus={handleMouseOver}
+    style={{ '--hue': hue }}
+  />
+);
 
 export default Cell;
