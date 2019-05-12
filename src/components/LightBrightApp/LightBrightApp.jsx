@@ -12,9 +12,13 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
   const [isDragging, setIsDragging] = useState(false);
 
+  const getCellIndex = useCallback(
+    e => Number(e.target.getAttribute('data-cell')),
+    [],
+  );
+
   const lightCell = useCallback(
-    e => {
-      const cellIndex = Number(e.target.getAttribute('data-cell'));
+    cellIndex => {
       const newCells = Array.from(cells, (cell, i) =>
         i === cellIndex ? randomHue() : cell,
       );
@@ -26,27 +30,30 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   const handleCellClick = useCallback(
     e => {
       setIsDragging(true);
-      lightCell(e);
+      const cellIndex = getCellIndex(e);
+      lightCell(cellIndex);
     },
-    [lightCell],
+    [lightCell, getCellIndex],
   );
 
   const handleCellMouseOver = useCallback(
     e => {
       if (isDragging) {
-        lightCell(e);
+        const cellIndex = getCellIndex(e);
+        lightCell(cellIndex);
       }
     },
-    [lightCell, isDragging],
+    [lightCell, isDragging, getCellIndex],
   );
 
   const handleCellKeyPress = useCallback(
     e => {
       if (['Enter', ' '].includes(e.key)) {
-        lightCell(e);
+        const cellIndex = getCellIndex(e);
+        lightCell(cellIndex);
       }
     },
-    [lightCell],
+    [lightCell, getCellIndex],
   );
 
   const handleBoardMouseUp = useCallback(() => {
