@@ -33,7 +33,8 @@
     "react/prop-types": 0,
     "react/jsx-one-expression-per-line": 0,
     "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "import/named": 0
   },
   "env": {
     "browser": true,
