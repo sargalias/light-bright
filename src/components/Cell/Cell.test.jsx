@@ -4,8 +4,8 @@ import Cell from './Cell';
 
 afterEach(cleanup);
 
-describe('Cell styling', () => {
-  test('should be colored when hue prop exists', () => {
+describe('Cell colors', () => {
+  test('Cell should be colored when hue prop exists', () => {
     const hue = 150;
     const { getByTestId } = render(<Cell index="1" hue={hue} />);
     const cellNode = getByTestId('1');
@@ -14,7 +14,7 @@ describe('Cell styling', () => {
     // TODO: jsdom can't test for CSS custom properties. Use a different testing environment
   });
 
-  test('should be colored when value of hue prop is 0 (edge case)', () => {
+  test('Cell should be colored when hue prop has value of 0', () => {
     const hue = 0;
     const { getByTestId } = render(<Cell index="1" hue={hue} />);
     const cellNode = getByTestId('1');
@@ -24,7 +24,7 @@ describe('Cell styling', () => {
 });
 
 describe('Cell events', () => {
-  test('Cell should fire its handleClick prop on mousedown', () => {
+  test('Cell should fire its prop "handleClick" on mousedown event', () => {
     const mockHandleClick = jest.fn();
     const { getByTestId } = render(
       <Cell index="1" handleClick={mockHandleClick} />,
@@ -36,7 +36,7 @@ describe('Cell events', () => {
     expect(mockHandleClick).toHaveBeenCalledTimes(1);
   });
 
-  test('Cell being moused over should trigger handleMouseOver prop', () => {
+  test('Cell should fire its prop "handleMouseOver" on mouseover event', () => {
     const mockHandleMouseOver = jest.fn();
     const { getByTestId } = render(
       <Cell index="1" handleMouseOver={mockHandleMouseOver} />,

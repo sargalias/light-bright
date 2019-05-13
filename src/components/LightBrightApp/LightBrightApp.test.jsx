@@ -10,34 +10,36 @@ describe('LightBrightApp', () => {
     expect(container.querySelectorAll('[data-cell]').length).toBe(30);
   });
 
-  test('click on cell should color it in', () => {
-    // jsdom can't test CSS custom properties yet.
-    const { getByTestId } = render(<LightBrightApp numCells={5} />);
-    const cell = getByTestId('2');
+  describe('simple clicks and keypresses', () => {
+    test('should color a Cell when it is clicked', () => {
+      // jsdom can't test CSS custom properties yet.
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell = getByTestId('2');
 
-    fireEvent.mouseDown(cell);
+      fireEvent.mouseDown(cell);
 
-    expect(cell.classList.contains('Cell___isOn')).toBe(true);
-    expect(cell.classList.contains('Cell')).toBe(true);
-  });
+      expect(cell.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell.classList.contains('Cell')).toBe(true);
+    });
 
-  test('keypress {Enter} or {Space} on Cell should color it in, but not other keys', () => {
-    const { getByTestId } = render(<LightBrightApp numCells={5} />);
-    const cell1 = getByTestId('1');
-    const cell2 = getByTestId('2');
-    const cell3 = getByTestId('3');
+    test('should color a Cell which has a keypress event with {Enter} or {Space}', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+      const cell3 = getByTestId('3');
 
-    fireEvent.keyDown(cell1, { key: 'Enter' });
-    fireEvent.keyDown(cell2, { key: ' ' });
-    fireEvent.keyDown(cell3, { key: 'A' });
+      fireEvent.keyDown(cell1, { key: 'Enter' });
+      fireEvent.keyDown(cell2, { key: ' ' });
+      fireEvent.keyDown(cell3, { key: 'A' });
 
-    expect(cell1.classList.contains('Cell___isOn')).toBe(true);
-    expect(cell2.classList.contains('Cell___isOn')).toBe(true);
-    expect(cell3.classList.contains('Cell___isOn')).toBe(false);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell3.classList.contains('Cell___isOn')).toBe(false);
+    });
   });
 
   describe('drag functionality', () => {
-    test('when triggering mousedown on a cell, dragging over other cells should give them color', () => {
+    test('when clicking on a Cell and not releasing, mousing over other Cells should color them', () => {
       const { getByTestId } = render(<LightBrightApp numCells={5} />);
       const cell1 = getByTestId('1');
       const cell2 = getByTestId('2');
@@ -66,7 +68,7 @@ describe('LightBrightApp', () => {
       expect(cell4.classList.contains('Cell___isOn')).toBe(false);
     });
 
-    test('should not trigger on keypress with {Enter} or {Space}', () => {
+    test('keypress events with {Enter} or {Space}, followed by mousing over other Cells, should only color the Cell with the keypress event', () => {
       const { getByTestId } = render(<LightBrightApp numCells={5} />);
       const cell1 = getByTestId('1');
       const cell2 = getByTestId('2');

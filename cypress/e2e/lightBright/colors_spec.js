@@ -1,4 +1,4 @@
-/* eslint-disable promise/prefer-await-to-then */
+/* eslint-disable promise/prefer-await-to-then, jest/valid-expect-in-promise */
 
 describe('colors', () => {
   it('should be unique', () => {
@@ -29,7 +29,6 @@ describe('colors', () => {
         cellHues.push(cellHue);
       });
 
-    // eslint-disable-next-line jest/valid-expect-in-promise
     cy.wrap(cellHues).then(cellHuesArr =>
       expect(new Set(cellHuesArr).size).eq(cellHuesArr.length),
     );

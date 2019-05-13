@@ -13,7 +13,7 @@ describe('randomHue', () => {
     }
   });
 
-  test('should generate unique colors until the first 360', () => {
+  test('should generate unique colors for the first 360 times', () => {
     const numberSet = new Set();
     for (let i = 0; i < 360; i++) {
       numberSet.add(randomHue());

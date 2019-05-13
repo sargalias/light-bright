@@ -38,7 +38,7 @@ describe('drag functionality', () => {
       .noBackgroundImage();
   });
 
-  it('should color all Cells the same as the first cell', () => {
+  it('should color all Cells the same color', () => {
     let firstBackgroundImage;
 
     const getCellBackgroundImage = jCell =>
