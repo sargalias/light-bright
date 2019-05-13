@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import randomHue from 'logic/randomHue';
+import randomHue from 'logic/randomHue'; // eslint-disable-line import/export
 
 const LightBrightApp = numCells => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
