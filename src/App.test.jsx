@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'testUtils'; // eslint-disable-line
+import { render } from 'testUtils';
 import App from './App';
 
 test('test', () => {

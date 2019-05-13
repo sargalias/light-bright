@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import randomHue from 'logic/randomHue'; // eslint-disable-line import/export
+import randomHue from 'logic/randomHue';
 
 const getCellIndex = e => Number(e.target.getAttribute('data-cell'));
 

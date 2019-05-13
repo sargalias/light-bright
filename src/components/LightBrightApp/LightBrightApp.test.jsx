@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from 'testUtils'; // eslint-disable-line
+import { render, cleanup, fireEvent } from 'testUtils';
 import LightBrightApp from './LightBrightApp';
 
 describe('LightBrightApp', () => {

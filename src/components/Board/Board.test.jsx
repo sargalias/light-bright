@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from 'testUtils'; // eslint-disable-line import/named
+import { render, fireEvent, cleanup } from 'testUtils';
 import Board from './Board';
 
 afterEach(cleanup);
