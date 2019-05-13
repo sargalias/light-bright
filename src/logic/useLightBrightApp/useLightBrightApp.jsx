@@ -10,6 +10,16 @@ const LightBrightApp = numCells => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
   const [isDragging, setIsDragging] = useState(false);
   const [currentColor, setCurrentColor] = useState();
+  const [colorHistory, setColorHistory] = useState([]);
+
+  const handleResetLastColor = () => {
+    const colorToReset = colorHistory[colorHistory.length - 1];
+    const newCells = cells.map(cell =>
+      cell === colorToReset ? undefined : cell,
+    );
+    setCells(newCells);
+    setColorHistory(colorHistory.slice(0, colorHistory.length - 1));
+  };
 
   const handleCellClick = e => {
     const cellIndex = getCellIndex(e);
@@ -18,6 +28,7 @@ const LightBrightApp = numCells => {
     setCurrentColor(newColor);
     setIsDragging(true);
     setCells(newCells);
+    setColorHistory([...colorHistory, newColor]);
   };
 
   const handleCellMouseOver = e => {
@@ -48,6 +59,7 @@ const LightBrightApp = numCells => {
     handleCellKeyPress,
     handleCellMouseOver,
     handleCellClick,
+    handleResetLastColor,
   };
 };
 

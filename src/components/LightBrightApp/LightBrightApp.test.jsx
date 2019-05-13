@@ -80,4 +80,18 @@ describe('LightBrightApp', () => {
       expect(cell2.classList.contains('Cell___isOn')).toBe(false);
     });
   });
+
+  describe('reset last color button', () => {
+    test('should reset the last color from single click', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell = getByTestId('1');
+      const resetLastColorBtn = getByTestId('resetLastColorBtn');
+
+      fireEvent.mouseDown(cell);
+      fireEvent.click(resetLastColorBtn);
+
+      expect(cell.classList.contains('Cell')).toBe(true);
+      expect(cell.classList.contains('Cell___isOn')).toBe(false);
+    });
+  });
 });

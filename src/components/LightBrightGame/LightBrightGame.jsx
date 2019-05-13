@@ -13,9 +13,13 @@ const LightBrightGame = ({
   handleCellMouseOver,
   handleBoardMouseUp,
   handleCellKeyPress,
+  handleResetLastColor,
 }) => (
   <div className={b('', '', parentClass)}>
-    <Controls parentClass={b('controls')} />
+    <Controls
+      parentClass={b('controls')}
+      handleResetLastColor={handleResetLastColor}
+    />
     <Board
       cells={cells}
       handleCellClick={handleCellClick}

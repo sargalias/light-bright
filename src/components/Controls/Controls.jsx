@@ -5,9 +5,13 @@ import styles from './Controls.scss';
 
 const b = bemUtils(styles);
 
-const Controls = ({ parentClass }) => (
+const Controls = ({ parentClass, handleResetLastColor }) => (
   <div className={b('', '', parentClass)}>
-    <Button text="Reset last color" id="resetLastColorBtn" />
+    <Button
+      text="Reset last color"
+      id="resetLastColorBtn"
+      handleResetLastColor={handleResetLastColor}
+    />
     <Button text="Reset all" />
   </div>
 );
