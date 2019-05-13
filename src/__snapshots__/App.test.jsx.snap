@@ -23,6 +23,8 @@ exports[`test 1`] = `
             class="_controls"
           >
             <button
+              data-testid="resetLastColorBtn"
+              id="resetLastColorBtn"
               type="button"
             >
               Reset last color

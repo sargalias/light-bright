@@ -7,7 +7,7 @@ const b = bemUtils(styles);
 
 const Controls = ({ parentClass }) => (
   <div className={b('', '', parentClass)}>
-    <Button text="Reset last color" />
+    <Button text="Reset last color" id="resetLastColorBtn" />
     <Button text="Reset all" />
   </div>
 );
