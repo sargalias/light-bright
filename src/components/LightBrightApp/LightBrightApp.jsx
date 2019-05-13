@@ -3,7 +3,7 @@ import MainContentHeader from 'components/MainContentHeader';
 import LightBrightGame from 'components/LightBrightGame';
 import Instructions from 'components/Instructions';
 import bemUtils from 'utilities/bemUtils';
-import useLightBrightAppLogic from 'logic/useLightBrightApp';
+import useLightBrightApp from 'logic/useLightBrightApp';
 import styles from './LightBrightApp.scss';
 
 const b = bemUtils(styles);
@@ -15,7 +15,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     handleCellKeyPress,
     handleCellMouseOver,
     handleCellClick,
-  } = useLightBrightAppLogic(numCells);
+  } = useLightBrightApp(numCells);
 
   return (
     <div className={b('', '', parentClass)}>
