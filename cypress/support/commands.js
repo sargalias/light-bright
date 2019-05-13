@@ -26,3 +26,11 @@
 
 // eslint-disable-next-line
 import 'cypress-testing-library/add-commands';
+
+Cypress.Commands.add('hasBackgroundImage', { prevSubject: true }, jCell =>
+  expect(getComputedStyle(jCell[0]).backgroundImage).not.eq('none'),
+);
+
+Cypress.Commands.add('noBackgroundImage', { prevSubject: true }, jCell =>
+  expect(getComputedStyle(jCell[0]).backgroundImage).eq('none'),
+);
