@@ -16,6 +16,9 @@ const Instructions = ({ parentClass }) => (
         and paint circles with it.
       </li>
       <li>
+        <strong>Double click:</strong> Unpaint the circle.
+      </li>
+      <li>
         <strong>Reset last color:</strong> Unpaint the most recently painted
         circles.
       </li>
