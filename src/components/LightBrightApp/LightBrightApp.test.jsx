@@ -118,10 +118,25 @@ describe('LightBrightApp', () => {
       expect(cell2.classList.contains('Cell___isOn')).toBe(false);
     });
 
-    /*
-    test('should do nothing if board is already empty', () => {
+    test('should work correctly after reset all button has been pressed', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+      const cell3 = getByTestId('2');
+      const resetLastColorBtn = getByTestId('resetLastColorBtn');
+      const resetAllBtn = getByTestId('resetAllBtn');
+
+      fireEvent.mouseDown(cell1);
+      fireEvent.mouseDown(cell2);
+      fireEvent.mouseDown(cell3);
+      fireEvent.click(resetAllBtn);
+
+      fireEvent.mouseDown(cell1);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+
+      fireEvent.click(resetLastColorBtn);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
     });
-    */
   });
 
   describe('reset all button', () => {
