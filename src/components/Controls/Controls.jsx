@@ -12,7 +12,7 @@ const Controls = ({ parentClass, handleResetLastColor }) => (
       id="resetLastColorBtn"
       handleResetLastColor={handleResetLastColor}
     />
-    <Button text="Reset all" />
+    <Button text="Reset all" id="resetAllBtn" />
   </div>
 );
 

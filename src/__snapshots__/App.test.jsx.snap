@@ -30,6 +30,8 @@ exports[`test 1`] = `
               Reset last color
             </button>
             <button
+              data-testid="resetAllBtn"
+              id="resetAllBtn"
               type="button"
             >
               Reset all
