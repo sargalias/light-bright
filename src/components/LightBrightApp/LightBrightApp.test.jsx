@@ -117,5 +117,10 @@ describe('LightBrightApp', () => {
       expect(cell1.classList.contains('Cell___isOn')).toBe(false);
       expect(cell2.classList.contains('Cell___isOn')).toBe(false);
     });
+
+    /*
+    test('should do nothing if board is already empty', () => {
+    });
+    */
   });
 });
