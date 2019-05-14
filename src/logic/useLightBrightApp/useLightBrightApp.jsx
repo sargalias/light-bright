@@ -6,6 +6,16 @@ const getCellIndex = e => Number(e.target.getAttribute('data-cell'));
 const lightCells = (oldCells, cellIndexToColor, color) =>
   Array.from(oldCells, (cell, i) => (i === cellIndexToColor ? color : cell));
 
+const isColorInCells = (cells, color) => cells.includes(color);
+
+const isBoardEmpty = cells => {
+  const nonEmptyCells = cells.filter(el => el !== undefined);
+  return nonEmptyCells.length === 0;
+};
+
+const resetColors = (cells, colorToReset) =>
+  cells.map(cell => (cell === colorToReset ? undefined : cell));
+
 const LightBrightApp = numCells => {
   const [cells, setCells] = useState(Array.from({ length: numCells }));
   const [isDragging, setIsDragging] = useState(false);
@@ -13,12 +23,22 @@ const LightBrightApp = numCells => {
   const [colorHistory, setColorHistory] = useState([]);
 
   const handleResetLastColor = () => {
-    const colorToReset = colorHistory[colorHistory.length - 1];
-    const newCells = cells.map(cell =>
-      cell === colorToReset ? undefined : cell,
-    );
-    setCells(newCells);
-    setColorHistory(colorHistory.slice(0, colorHistory.length - 1));
+    if (isBoardEmpty(cells)) {
+      setColorHistory([]);
+      return;
+    }
+
+    const newColorHistory = Array.from(colorHistory);
+
+    while (newColorHistory.length > 0) {
+      const colorToReset = newColorHistory.pop();
+      if (isColorInCells(cells, colorToReset)) {
+        const newCells = resetColors(cells, colorToReset);
+        setCells(newCells);
+        setColorHistory(newColorHistory);
+        break;
+      }
+    }
   };
 
   const handleCellClick = e => {
