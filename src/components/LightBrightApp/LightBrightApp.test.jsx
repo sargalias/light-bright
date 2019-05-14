@@ -129,12 +129,29 @@ describe('LightBrightApp', () => {
       const { getByTestId } = render(<LightBrightApp numCells={5} />);
       const cell1 = getByTestId('1');
       const cell2 = getByTestId('2');
-      const resetLastColorBtn = getByTestId('resetAllBtn');
+      const resetAllBtn = getByTestId('resetAllBtn');
 
-      fireEvent.click(resetLastColorBtn);
+      fireEvent.click(resetAllBtn);
 
       expect(cell1.classList.contains('Cell___isOn')).toBe(false);
       expect(cell2.classList.contains('Cell___isOn')).toBe(false);
     });
+  });
+
+  test('should decolor all cells when clicked', () => {
+    const { getByTestId } = render(<LightBrightApp numCells={5} />);
+    const cell1 = getByTestId('1');
+    const cell2 = getByTestId('2');
+    const cell3 = getByTestId('3');
+    const resetAllBtn = getByTestId('resetAllBtn');
+
+    fireEvent.mouseDown(cell1);
+    fireEvent.mouseDown(cell2);
+    fireEvent.mouseDown(cell2);
+    fireEvent.click(resetAllBtn);
+
+    expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+    expect(cell2.classList.contains('Cell___isOn')).toBe(false);
+    expect(cell3.classList.contains('Cell___isOn')).toBe(false);
   });
 });
