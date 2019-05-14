@@ -79,6 +79,26 @@ describe('LightBrightApp', () => {
     });
   });
 
+  describe('double click', () => {
+    test('should remove color', () => {
+      const [cell1, cell2] = cells;
+
+      // Don't color cells if mousedown has not happened yet
+      fireEvent.mouseDown(cell1);
+      fireEvent.doubleClick(cell1);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+
+      fireEvent.mouseDown(cell1);
+      fireEvent.mouseDown(cell2);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+
+      fireEvent.doubleClick(cell1);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+    });
+  });
+
   describe('reset last color button', () => {
     test('should reset the last color from single click', () => {
       const [cell] = cells;
