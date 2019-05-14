@@ -8,6 +8,7 @@ const Cell = ({
   handleMouseOver,
   handleKeyPress,
   hue,
+  handleCellDoubleClick,
 }) => (
   <button
     type="button"
@@ -21,6 +22,7 @@ const Cell = ({
     onKeyDown={handleKeyPress}
     onMouseOver={handleMouseOver}
     onFocus={handleMouseOver}
+    onDoubleClick={handleCellDoubleClick}
     style={{ '--hue': hue }}
   />
 );

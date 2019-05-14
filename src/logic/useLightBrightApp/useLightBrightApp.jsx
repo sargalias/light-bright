@@ -77,6 +77,12 @@ const LightBrightApp = numCells => {
     }
   };
 
+  const handleCellDoubleClick = e => {
+    const cellIndex = getCellIndex(e);
+    const newCells = lightCells(cells, cellIndex, undefined);
+    setCells(newCells);
+  };
+
   const handleBoardMouseUp = () => {
     setIsDragging(false);
     setCurrentColor(undefined);
@@ -90,6 +96,7 @@ const LightBrightApp = numCells => {
     handleCellClick,
     handleResetLastColor,
     handleResetAll,
+    handleCellDoubleClick,
   };
 };
 

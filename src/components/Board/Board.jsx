@@ -12,6 +12,7 @@ const Board = ({
   handleCellMouseOver,
   handleBoardMouseUp,
   handleCellKeyPress,
+  handleCellDoubleClick,
 }) => (
   <div
     className={b('', '', parentClass)}
@@ -28,6 +29,7 @@ const Board = ({
         hue={cell}
         handleMouseOver={handleCellMouseOver}
         handleKeyPress={handleCellKeyPress}
+        handleCellDoubleClick={handleCellDoubleClick}
       />
     ))}
   </div>
