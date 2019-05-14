@@ -40,4 +40,8 @@ describe('accessibility events', () => {
       })
       .noBackgroundImage();
   });
+
+  it('Cell should not be selectable', () => {
+    cy.get('@cell1').should('css', 'user-select', 'none');
+  });
 });

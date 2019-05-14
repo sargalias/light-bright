@@ -9,6 +9,7 @@
   border: var(--border-cell);
   background-color: var(--color-transparent);
   border-radius: 50%;
+  user-select: none;
 
   &___isOn {
     --color-1: hsl(var(--hue), var(--saturation), var(--lightness-light));
