@@ -82,6 +82,8 @@ describe('LightBrightApp', () => {
   });
 
   describe('reset last color button', () => {
+    afterEach(cleanup);
+
     test('should reset the last color from single click', () => {
       const { getByTestId } = render(<LightBrightApp numCells={5} />);
       const cell = getByTestId('1');
@@ -92,6 +94,28 @@ describe('LightBrightApp', () => {
 
       expect(cell.classList.contains('Cell')).toBe(true);
       expect(cell.classList.contains('Cell___isOn')).toBe(false);
+    });
+
+    test('should reset a color unless the board is empty, even when some colors have been overwritten', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+      const resetLastColorBtn = getByTestId('resetLastColorBtn');
+
+      fireEvent.mouseDown(cell1);
+      fireEvent.mouseDown(cell2);
+      fireEvent.mouseDown(cell2);
+
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(true);
+
+      fireEvent.click(resetLastColorBtn);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(true);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(false);
+
+      fireEvent.click(resetLastColorBtn);
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(false);
     });
   });
 });
