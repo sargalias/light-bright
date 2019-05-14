@@ -2,19 +2,26 @@ import React from 'react';
 import { render, cleanup, fireEvent } from 'testUtils';
 import LightBrightApp from './LightBrightApp';
 
-describe('LightBrightApp', () => {
-  afterEach(cleanup);
+let getByTestId;
+let cells;
 
+beforeEach(() => {
+  cleanup();
+  ({ getByTestId } = render(<LightBrightApp numCells={5} />));
+  cells = Array.from({ length: 5 }, (el, i) => getByTestId(`${i}`));
+});
+
+afterAll(cleanup);
+
+describe('LightBrightApp', () => {
   test('should render a number of cells equal to its numCells prop', () => {
-    const { container } = render(<LightBrightApp numCells={30} />);
-    expect(container.querySelectorAll('[data-cell]').length).toBe(30);
+    expect(document.querySelectorAll('[data-cell]').length).toBe(5);
   });
 
   describe('simple clicks and keypresses', () => {
     test('should color a Cell when it is clicked', () => {
       // jsdom can't test CSS custom properties yet.
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell = getByTestId('2');
+      const cell = cells[1];
 
       fireEvent.mouseDown(cell);
 
@@ -23,10 +30,7 @@ describe('LightBrightApp', () => {
     });
 
     test('should color a Cell which has a keypress event with {Enter} or {Space}', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
-      const cell3 = getByTestId('3');
+      const [cell1, cell2, cell3] = cells;
 
       fireEvent.keyDown(cell1, { key: 'Enter' });
       fireEvent.keyDown(cell2, { key: ' ' });
@@ -40,11 +44,7 @@ describe('LightBrightApp', () => {
 
   describe('drag functionality', () => {
     test('when clicking on a Cell and not releasing, mousing over other Cells should color them', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
-      const cell3 = getByTestId('3');
-      const cell4 = getByTestId('4');
+      const [cell1, cell2, cell3, cell4] = cells;
       const board = getByTestId('board');
 
       // Don't color cells if mousedown has not happened yet
@@ -69,9 +69,7 @@ describe('LightBrightApp', () => {
     });
 
     test('keypress events with {Enter} or {Space}, followed by mousing over other Cells, should only color the Cell with the keypress event', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
+      const [cell1, cell2] = cells;
 
       fireEvent.keyDown(cell1, { key: 'Enter' });
       fireEvent.mouseOver(cell2);
@@ -82,11 +80,8 @@ describe('LightBrightApp', () => {
   });
 
   describe('reset last color button', () => {
-    afterEach(cleanup);
-
     test('should reset the last color from single click', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell = getByTestId('1');
+      const [cell] = cells;
       const resetLastColorBtn = getByTestId('resetLastColorBtn');
 
       fireEvent.mouseDown(cell);
@@ -97,9 +92,7 @@ describe('LightBrightApp', () => {
     });
 
     test('should reset a color unless the board is empty, even when some colors have been overwritten', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
+      const [cell1, cell2] = cells;
       const resetLastColorBtn = getByTestId('resetLastColorBtn');
 
       fireEvent.mouseDown(cell1);
@@ -119,10 +112,7 @@ describe('LightBrightApp', () => {
     });
 
     test('should work correctly after reset all button has been pressed', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
-      const cell3 = getByTestId('2');
+      const [cell1, cell2, cell3] = cells;
       const resetLastColorBtn = getByTestId('resetLastColorBtn');
       const resetAllBtn = getByTestId('resetAllBtn');
 
@@ -141,9 +131,7 @@ describe('LightBrightApp', () => {
 
   describe('reset all button', () => {
     test('should do nothing when board is empty', () => {
-      const { getByTestId } = render(<LightBrightApp numCells={5} />);
-      const cell1 = getByTestId('1');
-      const cell2 = getByTestId('2');
+      const [cell1, cell2] = cells;
       const resetAllBtn = getByTestId('resetAllBtn');
 
       fireEvent.click(resetAllBtn);
@@ -154,10 +142,7 @@ describe('LightBrightApp', () => {
   });
 
   test('should decolor all cells when clicked', () => {
-    const { getByTestId } = render(<LightBrightApp numCells={5} />);
-    const cell1 = getByTestId('1');
-    const cell2 = getByTestId('2');
-    const cell3 = getByTestId('3');
+    const [cell1, cell2, cell3] = cells;
     const resetAllBtn = getByTestId('resetAllBtn');
 
     fireEvent.mouseDown(cell1);
