@@ -41,6 +41,10 @@ const LightBrightApp = numCells => {
     }
   };
 
+  const handleResetAll = () => {
+    console.log('clicked reset all');
+  };
+
   const handleCellClick = e => {
     const cellIndex = getCellIndex(e);
     const newColor = randomHue();
@@ -80,6 +84,7 @@ const LightBrightApp = numCells => {
     handleCellMouseOver,
     handleCellClick,
     handleResetLastColor,
+    handleResetAll,
   };
 };
 

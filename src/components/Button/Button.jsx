@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Button = ({ text, id, handleResetLastColor }) => (
-  <button type="button" id={id} data-testid={id} onClick={handleResetLastColor}>
+const Button = ({ text, id, handleClick }) => (
+  <button type="button" id={id} data-testid={id} onClick={handleClick}>
     {text}
   </button>
 );
