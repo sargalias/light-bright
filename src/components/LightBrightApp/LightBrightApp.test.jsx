@@ -48,7 +48,7 @@ describe('LightBrightApp', () => {
       const board = getByTestId('board');
 
       // Don't color cells if mousedown has not happened yet
-      fireEvent.mouseOver(cell2);
+      fireEvent.mouseOver(cell1);
       expect(cell1.classList.contains('Cell___isOn')).toBe(false);
 
       // Trigger mousedown and mouseover
