@@ -41,6 +41,25 @@ describe('accessibility events', () => {
       .noBackgroundImage();
   });
 
+  it('should decolor cell on double click', () => {
+    // Color cell one, then decolor it
+    cy.get('@cell1')
+      .click()
+      .dblclick()
+      .noBackgroundImage();
+
+    // Color 2 cells
+    cy.get('@cell1').click();
+    cy.get('@cell2').click();
+
+    // Decolor cell 1
+    cy.get('@cell1')
+      .click()
+      .dblclick()
+      .noBackgroundImage();
+    cy.get('@cell2').hasBackgroundImage();
+  });
+
   it('Cell should not be selectable', () => {
     cy.get('@cell1').should('css', 'user-select', 'none');
   });
