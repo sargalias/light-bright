@@ -1,22 +1,26 @@
 /* eslint-disable promise/prefer-await-to-then */
 
 describe('accessibility events', () => {
-  it('should color a cell on mouseDown', () => {
+  beforeEach(() => {
     cy.visit('/');
-    cy.getByTestId('30')
+    cy.getByTestId('30').as('cell1');
+    cy.getByTestId('31').as('cell2');
+  });
+
+  it('should color a cell on mouseDown', () => {
+    cy.get('@cell1')
       .click()
       .hasBackgroundImage();
   });
 
   it('should color a cell on keyDown when key is "Enter" or Space', () => {
-    cy.visit('/');
-    cy.getByTestId('30')
+    cy.get('@cell1')
       .trigger('keydown', {
         key: 'Enter',
       })
       .hasBackgroundImage();
 
-    cy.getByTestId('31')
+    cy.get('@cell2')
       .trigger('keydown', {
         key: ' ',
       })
@@ -24,14 +28,13 @@ describe('accessibility events', () => {
   });
 
   it('should do nothing when key pressed is not "Enter" or "Space"', () => {
-    cy.visit('/');
-    cy.getByTestId('32')
+    cy.get('@cell1')
       .trigger('keydown', {
         key: 'A',
       })
       .noBackgroundImage();
 
-    cy.getByTestId('32')
+    cy.get('@cell2')
       .trigger('keydown', {
         key: 'b',
       })
