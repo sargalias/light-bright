@@ -16,8 +16,10 @@ const isBoardEmpty = cells => {
 const resetColors = (cells, colorToReset) =>
   cells.map(cell => (cell === colorToReset ? undefined : cell));
 
+const generateCellsArray = numCells => Array.from({ length: numCells });
+
 const LightBrightApp = numCells => {
-  const [cells, setCells] = useState(Array.from({ length: numCells }));
+  const [cells, setCells] = useState(() => generateCellsArray(numCells));
   const [isDragging, setIsDragging] = useState(false);
   const [currentColor, setCurrentColor] = useState();
   const [colorHistory, setColorHistory] = useState([]);
@@ -42,7 +44,10 @@ const LightBrightApp = numCells => {
   };
 
   const handleResetAll = () => {
-    console.log('clicked reset all');
+    setCells(generateCellsArray(numCells));
+    setColorHistory([]);
+    setIsDragging(false);
+    setCurrentColor(undefined);
   };
 
   const handleCellClick = e => {
