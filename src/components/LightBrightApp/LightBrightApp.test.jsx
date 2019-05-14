@@ -123,4 +123,18 @@ describe('LightBrightApp', () => {
     });
     */
   });
+
+  describe('reset all button', () => {
+    test('should do nothing when board is empty', () => {
+      const { getByTestId } = render(<LightBrightApp numCells={5} />);
+      const cell1 = getByTestId('1');
+      const cell2 = getByTestId('2');
+      const resetLastColorBtn = getByTestId('resetAllBtn');
+
+      fireEvent.click(resetLastColorBtn);
+
+      expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+      expect(cell2.classList.contains('Cell___isOn')).toBe(false);
+    });
+  });
 });
