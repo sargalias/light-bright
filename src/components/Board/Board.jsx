@@ -13,6 +13,7 @@ const Board = ({
   handleBoardMouseUp,
   handleCellKeyPress,
   handleCellDoubleClick,
+  cellRefs,
 }) => (
   <div
     className={b('', '', parentClass)}
@@ -30,6 +31,7 @@ const Board = ({
         handleMouseOver={handleCellMouseOver}
         handleKeyPress={handleCellKeyPress}
         handleCellDoubleClick={handleCellDoubleClick}
+        ref={cellRefs[i]}
       />
     ))}
   </div>

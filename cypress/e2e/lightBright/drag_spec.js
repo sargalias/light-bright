@@ -1,39 +1,56 @@
-/* eslint-disable promise/prefer-await-to-then */
+/* eslint-disable promise/prefer-await-to-then, jest/valid-expect-in-promise */
 
 describe('drag functionality', () => {
-  it('should start on mousedown and stop on mouseup or when the mouse leaves the board', () => {
+  beforeEach(() => {
     cy.visit('/');
+    cy.getByTestId('30').as('cell1');
+    cy.getByTestId('31').as('cell2');
+    cy.getByTestId('32').as('cell3');
+    cy.getByTestId('33').as('cell4');
+    cy.getByTestId('34').as('cell5');
+  });
 
-    cy.getByTestId('30')
+  it('should start on mousedown and stop on mouseup or when the mouse leaves the board and should focus dragged over cells', () => {
+    cy.get('@cell1')
       .trigger('mouseover')
       .noBackgroundImage();
 
     // begin drag
-    cy.getByTestId('30')
+    cy.get('@cell1')
       .trigger('mousedown')
       .hasBackgroundImage();
-    cy.getByTestId('31')
+    cy.get('@cell2')
       .trigger('mouseover')
       .hasBackgroundImage();
-    cy.getByTestId('32')
+    cy.focused().then($jCell => {
+      expect($jCell[0]).attr('data-testid', '31');
+    });
+
+    cy.get('@cell3')
       .trigger('mouseover')
       .hasBackgroundImage();
+    cy.focused().then($jCell => {
+      expect($jCell[0]).attr('data-testid', '32');
+    });
 
     // end drag
-    cy.getByTestId('33')
+    cy.get('@cell4')
       .trigger('mouseup')
       .trigger('mouseover')
       .noBackgroundImage();
+    cy.focused().then($jCell => {
+      expect($jCell[0]).not.attr('data-testid', '33');
+    });
 
     // begin drag
-    cy.getByTestId('33')
+    cy.get('@cell2')
       .trigger('mousedown')
       .hasBackgroundImage();
 
     // end drag
     cy.getByTestId('board').trigger('mouseout');
 
-    cy.getByTestId('34')
+    cy.get('@cell5')
       .trigger('mouseover')
       .noBackgroundImage();
   });
@@ -50,22 +67,20 @@ describe('drag functionality', () => {
     const assertNotSameBackgroundImage = (image1, image2) =>
       expect(image1).not.eq(image2);
 
-    cy.visit('/');
-
     // click to begin drag
-    cy.getByTestId('30')
+    cy.get('@cell1')
       .trigger('mousedown')
       .then(jCell => {
         firstBackgroundImage = getCellBackgroundImage(jCell);
       });
 
-    cy.getByTestId('31')
+    cy.get('@cell2')
       .trigger('mouseover')
       .then(jCell => {
         const backgroundImage = getCellBackgroundImage(jCell);
         assertSameBackgroundImage(firstBackgroundImage, backgroundImage);
       });
-    cy.getByTestId('32')
+    cy.get('@cell3')
       .trigger('mouseover')
       .then(jCell => {
         const backgroundImage = getCellBackgroundImage(jCell);
@@ -73,10 +88,10 @@ describe('drag functionality', () => {
       });
 
     // end drag
-    cy.getByTestId('33').trigger('mouseup');
+    cy.get('@cell4').trigger('mouseup');
 
     // begin new drag
-    cy.getByTestId('30')
+    cy.get('@cell1')
       .trigger('mousedown')
       .then(jCell => {
         const backgroundImage = getCellBackgroundImage(jCell);
@@ -84,13 +99,13 @@ describe('drag functionality', () => {
         firstBackgroundImage = getCellBackgroundImage(jCell);
       });
 
-    cy.getByTestId('31')
+    cy.get('@cell2')
       .trigger('mouseover')
       .then(jCell => {
         const backgroundImage = getCellBackgroundImage(jCell);
         assertSameBackgroundImage(firstBackgroundImage, backgroundImage);
       });
-    cy.getByTestId('32')
+    cy.get('@cell3')
       .trigger('mouseover')
       .then(jCell => {
         const backgroundImage = getCellBackgroundImage(jCell);
@@ -98,6 +113,6 @@ describe('drag functionality', () => {
       });
 
     // end drag
-    cy.getByTestId('33').trigger('mouseup');
+    cy.get('@cell4').trigger('mouseup');
   });
 });

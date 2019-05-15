@@ -43,18 +43,29 @@ describe('LightBrightApp', () => {
   });
 
   describe('drag functionality', () => {
-    test('when clicking on a Cell and not releasing, mousing over other Cells should color them', () => {
+    test('when clicking on a Cell and not releasing, mousing over other Cells should color them and give them focus', () => {
+      const mockFocus = jest.fn();
+      HTMLElement.focus = mockFocus;
       const [cell1, cell2, cell3, cell4] = cells;
+      cell1.focus = mockFocus;
+      cell2.focus = mockFocus;
+      cell3.focus = mockFocus;
+      cell4.focus = mockFocus;
       const board = getByTestId('board');
 
       // Don't color cells if mousedown has not happened yet
       fireEvent.mouseOver(cell1);
       expect(cell1.classList.contains('Cell___isOn')).toBe(false);
+      // Don't focus Cell
+      expect(cell1.focus).not.toHaveBeenCalled();
 
       // Trigger mousedown and mouseover
       fireEvent.mouseDown(cell1);
       fireEvent.mouseOver(cell2);
       fireEvent.mouseOver(cell3);
+      // Focus Cell
+      expect(cell2.focus).toHaveBeenCalled();
+      expect(cell3.focus).toHaveBeenCalled();
 
       expect(cell1.classList.contains('Cell___isOn')).toBe(true);
       expect(cell2.classList.contains('Cell___isOn')).toBe(true);

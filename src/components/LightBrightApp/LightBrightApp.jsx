@@ -18,6 +18,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
     handleResetLastColor,
     handleResetAll,
     handleCellDoubleClick,
+    cellRefs,
   } = useLightBrightApp(numCells);
 
   return (
@@ -33,6 +34,7 @@ const LightBrightApp = ({ parentClass, numCells }) => {
         handleResetLastColor={handleResetLastColor}
         handleResetAll={handleResetAll}
         handleCellDoubleClick={handleCellDoubleClick}
+        cellRefs={cellRefs}
       />
       <Instructions parentClass={b('instructions')} />
     </div>
