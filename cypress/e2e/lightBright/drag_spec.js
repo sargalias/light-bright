@@ -1,4 +1,4 @@
-/* eslint-disable promise/prefer-await-to-then */
+/* eslint-disable promise/prefer-await-to-then, jest/valid-expect-in-promise */
 
 describe('drag functionality', () => {
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('drag functionality', () => {
     cy.getByTestId('34').as('cell5');
   });
 
-  it('should start on mousedown and stop on mouseup or when the mouse leaves the board', () => {
+  it('should start on mousedown and stop on mouseup or when the mouse leaves the board and should focus dragged over cells', () => {
     cy.get('@cell1')
       .trigger('mouseover')
       .noBackgroundImage();
@@ -22,15 +22,25 @@ describe('drag functionality', () => {
     cy.get('@cell2')
       .trigger('mouseover')
       .hasBackgroundImage();
+    cy.focused().then($jCell => {
+      expect($jCell[0]).attr('data-testid', '31');
+    });
+
     cy.get('@cell3')
       .trigger('mouseover')
       .hasBackgroundImage();
+    cy.focused().then($jCell => {
+      expect($jCell[0]).attr('data-testid', '32');
+    });
 
     // end drag
     cy.get('@cell4')
       .trigger('mouseup')
       .trigger('mouseover')
       .noBackgroundImage();
+    cy.focused().then($jCell => {
+      expect($jCell[0]).not.attr('data-testid', '33');
+    });
 
     // begin drag
     cy.get('@cell2')

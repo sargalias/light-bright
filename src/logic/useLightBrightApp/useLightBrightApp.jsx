@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import randomHue from 'logic/randomHue';
 
 const getCellIndex = e => Number(e.target.getAttribute('data-cell'));
@@ -23,6 +23,7 @@ const LightBrightApp = numCells => {
   const [isDragging, setIsDragging] = useState(false);
   const [currentColor, setCurrentColor] = useState();
   const [colorHistory, setColorHistory] = useState([]);
+  const cellRefs = Array.from({ length: 360 }, () => useRef(null)); // eslint-disable-line react-hooks/rules-of-hooks
 
   const handleResetLastColor = () => {
     if (isBoardEmpty(cells)) {
@@ -65,6 +66,7 @@ const LightBrightApp = numCells => {
       const cellIndex = getCellIndex(e);
       const newCells = lightCells(cells, cellIndex, currentColor);
       setCells(newCells);
+      cellRefs[cellIndex].current.focus(); // eslint-disable-line security/detect-object-injection
     }
   };
 
@@ -97,6 +99,7 @@ const LightBrightApp = numCells => {
     handleResetLastColor,
     handleResetAll,
     handleCellDoubleClick,
+    cellRefs,
   };
 };
 
