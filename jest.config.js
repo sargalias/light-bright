@@ -4,12 +4,13 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss)$': 'identity-obj-proxy',
 
+    '^abstracts/(.*)$': '<rootDir>/src/abstracts/$1',
+    '^base/(.*)$': '<rootDir>/src/base/$1',
     '^components/(.*)$': '<rootDir>/src/components/$1',
     '^layout/(.*)$': '<rootDir>/src/layout/$1',
-    '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^base/(.*)$': '<rootDir>/src/base/$1',
     '^logic/(.*)$': '<rootDir>/src/logic/$1',
+    '^utilities/(.*)$': '<rootDir>/src/utilities/$1',
     '^testUtils$': '<rootDir>/testUtils',
   },
   coverageThreshold: {

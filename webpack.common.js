@@ -20,12 +20,13 @@ module.exports = env => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
+        abstracts: path.resolve(__dirname, 'src/abstracts/'),
+        base: path.resolve(__dirname, 'src/base/'),
         components: path.resolve(__dirname, 'src/components/'),
         layout: path.resolve(__dirname, 'src/layout/'),
         pages: path.resolve(__dirname, 'src/pages/'),
-        utilities: path.resolve(__dirname, 'src/utilities/'),
-        base: path.resolve(__dirname, 'src/base/'),
         logic: path.resolve(__dirname, 'src/logic/'),
+        utilities: path.resolve(__dirname, 'src/utilities/'),
         testUtils: path.resolve(__dirname, './testUtils/'),
       },
     },
