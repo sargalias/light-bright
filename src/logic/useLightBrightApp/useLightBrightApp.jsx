@@ -18,7 +18,7 @@ const resetColors = (cells, colorToReset) =>
 
 const generateCellsArray = numCells => Array.from({ length: numCells });
 
-const LightBrightApp = numCells => {
+const useLightBrightApp = numCells => {
   const [cells, setCells] = useState(() => generateCellsArray(numCells));
   const [isDragging, setIsDragging] = useState(false);
   const [currentColor, setCurrentColor] = useState();
@@ -103,4 +103,4 @@ const LightBrightApp = numCells => {
   };
 };
 
-export default LightBrightApp;
+export default useLightBrightApp;
