@@ -2,11 +2,11 @@ import React from 'react';
 import Controls from 'components/Controls';
 import Board from 'components/Board';
 import bemUtils from 'utilities/bemUtils';
-import styles from './LightBrightGame.scss';
+import styles from './LightBrightInteractiveArea.scss';
 
 const b = bemUtils(styles);
 
-const LightBrightGame = ({
+const LightBrightInteractiveArea = ({
   parentClass,
   cells,
   handleCellClick,
@@ -36,4 +36,4 @@ const LightBrightGame = ({
   </div>
 );
 
-export default LightBrightGame;
+export default LightBrightInteractiveArea;

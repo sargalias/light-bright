@@ -1,6 +1,6 @@
 import React from 'react';
 import MainContentHeader from 'components/MainContentHeader';
-import LightBrightGame from 'components/LightBrightGame';
+import LightBrightInteractiveArea from 'components/LightBrightInteractiveArea';
 import Instructions from 'components/Instructions';
 import bemUtils from 'utilities/bemUtils';
 import useLightBrightApp from 'logic/useLightBrightApp';
@@ -24,8 +24,8 @@ const LightBrightApp = ({ parentClass, numCells }) => {
   return (
     <div className={b('', '', parentClass)}>
       <MainContentHeader parentClass={b('mainContentHeader')} />
-      <LightBrightGame
-        parentClass={b('lightBrightGame')}
+      <LightBrightInteractiveArea
+        parentClass={b('lightBrightInteractiveArea')}
         cells={cells}
         handleCellClick={handleCellClick}
         handleCellKeyPress={handleCellKeyPress}
