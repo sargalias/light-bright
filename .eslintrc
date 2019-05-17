@@ -12,7 +12,6 @@
   "plugins": [
     "no-use-extend-native",
     "promise",
-    "no-secrets",
     "xss",
     "jest",
     "cypress",
@@ -27,14 +26,14 @@
     "promise/valid-params": 2,
     "promise/prefer-await-to-then": 1,
     "promise/prefer-await-to-callbacks": 1,
-    "no-secrets/no-secrets": 2,
     "xss/no-mixed-html": 1,
     "xss/no-location-href-assign": 1,
     "react/prop-types": 0,
     "react/jsx-one-expression-per-line": 0,
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 1,
-    "import/named": 0
+    "import/named": 0,
+    "security/detect-object-injection": 0
   },
   "env": {
     "browser": true,
