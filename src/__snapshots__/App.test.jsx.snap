@@ -17,7 +17,7 @@ exports[`test 1`] = `
           </h1>
         </header>
         <div
-          class="_lightBrightGame"
+          class="_lightBrightInteractiveArea"
         >
           <div
             class="_controls"
