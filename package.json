@@ -34,7 +34,8 @@
     "classnames": "^2.2.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "stylelint-prettier": "^1.0.6"
+    "stylelint-prettier": "^1.0.6",
+    "typeface-lato": "0.0.54"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -44,8 +45,8 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
-    "bem-css-modules": "^1.4.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",
+    "bem-css-modules": "^1.4.2",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
     "cypress": "^3.2.0",
