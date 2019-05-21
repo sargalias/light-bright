@@ -74,6 +74,10 @@ module.exports = env => {
             },
           ],
         },
+        {
+          test: /\.(woff|woff2|eot|tff|otf)$/,
+          use: ['file-loader'],
+        },
       ],
     },
     plugins: [
