@@ -29,6 +29,7 @@ const Cell = React.forwardRef(
       onFocus={handleMouseOver}
       onDoubleClick={handleCellDoubleClick}
       style={{ '--hue': hue }}
+      aria-label={`Cell ${index}`}
     />
   ),
 );
