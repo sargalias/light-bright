@@ -6,7 +6,8 @@
 
   width: var(--cell-size);
   height: var(--cell-size);
-  border: var(--border-cell);
+  border: var(--border);
+  border-color: var(--border-color-cell);
   background-color: var(--color-transparent);
   border-radius: 50%;
   user-select: none;

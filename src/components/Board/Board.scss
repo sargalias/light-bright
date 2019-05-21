@@ -4,6 +4,7 @@
   max-height: var(--max-height-board);
   align-items: center;
   border: var(--border);
+  border-color: var(--color-border-board);
   border-radius: var(--border-radius-sm);
   grid-template-columns: repeat(
     auto-fit,
