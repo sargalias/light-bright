@@ -7,6 +7,16 @@ a {
   font-family: Lato, sans-serif;
 }
 
+li,
+p,
+a {
+  font-size: 1rem;
+
+  @include media-up($br-md) {
+    font-size: 1.2rem;
+  }
+}
+
 a {
   color: var(--color-accent);
   text-decoration: none;
