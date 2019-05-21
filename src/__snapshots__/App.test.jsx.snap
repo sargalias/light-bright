@@ -3098,18 +3098,27 @@ exports[`test 1`] = `
         <p
           class="_text"
         >
-          © Spyros Argalias
-          2019
+          By
+           
+          <a
+            href="https://sargalias.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Spyros Argalias
+          </a>
         </p>
         <p
           class="_text"
         >
+          View code on
+           
           <a
             href="https://github.com/sargalias/light-bright"
             rel="noopener noreferrer"
             target="_blank"
           >
-            View code
+            GitHub
           </a>
         </p>
       </div>
