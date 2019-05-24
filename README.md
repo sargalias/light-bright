@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - NPM
 
-Installation requires [NPM](https://www.npmjs.com/) which is included with [Node](https://nodejs.org/en/). You can install Node by downloading the installer from the website.
+Installation requires [NPM](https://www.npmjs.com/) which is included with [Node](https://nodejs.org/). You can install Node by downloading the installer from the website.
 
 To update NPM to the latest version:
 
