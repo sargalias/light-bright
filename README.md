@@ -21,17 +21,23 @@ Installation requires [NPM](https://www.npmjs.com/) which is included with [Node
 
 To update NPM to the latest version:
 
-`npm install -g npm@latest`
+```
+npm install -g npm@latest
+```
 
 ### Installation
 
 1. Clone the repo
 
-`git clone https://github.com/sargalias/light-bright`
+```
+git clone https://github.com/sargalias/light-bright
+```
 
 2. Install NPM packages
 
-`npm install`
+```
+npm install
+```
 
 ## Usage
 
@@ -71,7 +77,11 @@ The reason for it is because it's preferrable that every commit leaves the proje
 
 However it's not essential, as long as merge commits to **master** / **develop** branches are stable.
 
-If needed, you can disable the Git hook by deleting the **.huskyrc** file, or using the `--no-verify` flag during commits. E.g. `git commit --no-verify`
+If needed, you can disable the Git hook by deleting the **.huskyrc** file, or using the `--no-verify` flag during commits. E.g.
+
+```
+git commit --no-verify
+```
 
 ## Built with
 
