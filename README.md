@@ -9,6 +9,21 @@ Light bright is a simple application which simulates the toy "Light Brite". It c
 - Double click erases the color on a circle.
 - The buttons erase the last color or all colors, respectively.
 
+## Table of contents
+
+- [Getting started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Starting the project](#starting-the-project)
+  - [Building the project](#building-the-project)
+  - [Running the tests](#running-the-tests)
+  - [Code formatting and linting](#code-formatting-and-linting)
+  - [Build pipeline](#build-pipeline)
+  - [Note about the Git hook](#note-about-the-git-hook)
+- [Built with](#built-with)
+- [License](#license)
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
