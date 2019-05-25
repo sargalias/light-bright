@@ -16,6 +16,7 @@ Light bright is a simple application which simulates the toy "Light Brite". It c
 - [Getting started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Running the project for development](#running-the-project-for-development)
 - [Usage](#usage)
   - [Starting the project](#starting-the-project)
   - [Building the project](#building-the-project)
@@ -54,6 +55,12 @@ git clone https://github.com/sargalias/light-bright
 
 ```
 npm install
+```
+
+### Running the project for development
+
+```
+npm start
 ```
 
 ## Usage
