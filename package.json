@@ -26,7 +26,11 @@
     "lint:fix:js": "npm run lint:js -- --fix",
     "ci": "npm run format && npm run lint:fix && npm run test:all"
   },
-  "author": "Spyros Argalias",
+  "author": {
+    "name": "Spyros Argalias",
+    "email": "sargalias@gmail.com",
+    "url": "https://sargalias.com"
+  },
   "license": "ISC",
   "dependencies": {
     "array-shuffle": "1.0.1",
