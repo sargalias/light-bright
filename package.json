@@ -31,7 +31,7 @@
     "email": "sargalias@gmail.com",
     "url": "https://sargalias.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "array-shuffle": "1.0.1",
     "bem-css-modules": "1.4.2",
