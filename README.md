@@ -1,5 +1,7 @@
 # Light Bright
 
+[View project](https://sargalias-light-bright.netlify.com)
+
 ![Light bright](./screenshot.png)
 
 Light bright is a simple application which simulates the toy "Light Brite". It consists of circles and a few buttons.
