@@ -120,6 +120,9 @@ git commit --no-verify
 - [Prettier](https://prettier.io/) - Code formatting
 - [Husky](https://github.com/typicode/husky) - Simple Git hooks
 - [BEM-CSS-Modules](https://github.com/Connormiha/bem-css-modules) - Utility for using CSS modules with BEM.
+- [array-shuffle](https://github.com/sindresorhus/array-shuffle) - Utility for shuffling arrays.
+- [Classnames](https://github.com/JedWatson/classnames) - Utility for working with CSS classes.
+- [typeface-lato](https://github.com/KyleAMathews/typefaces/tree/master/packages/lato) - NPM package for the Lato typeface.
 - And many more, particularly plugins and loaders.
 
 ## License
