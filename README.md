@@ -101,7 +101,7 @@ The reason for it is because it's preferrable that every commit leaves the proje
 
 However it's not essential, as long as merge commits to **master** / **develop** branches are stable.
 
-If needed, you can disable the Git hook by deleting the **.huskyrc** file, or using the `--no-verify` flag during commits. E.g.
+If needed, you can disable the Git hook by deleting the **.huskyrc** file, or using the `--no-verify` flag during commits.
 
 ```
 git commit --no-verify
